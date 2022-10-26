@@ -7,14 +7,14 @@ using TravelPalPrototype.Interfaces;
 
 namespace TravelPalPrototype.Models
 {
-    public class TravelDocument : PackingListItem
+    public class TravelDocument : IPackingListItem
     {
         public string Name { get; set; }
-        public bool Required { get; set; }
-        public TravelDocument(string name, bool required)
+        public bool IsRequired { get; set; }
+        public TravelDocument(string name, bool isRequired)
         {
             Name = name;
-            this.Required = required;
+            this.IsRequired = isRequired;
         }
         public string GetInfo()
         {

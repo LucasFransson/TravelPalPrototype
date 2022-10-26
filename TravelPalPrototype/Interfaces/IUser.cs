@@ -9,14 +9,15 @@ namespace TravelPalPrototype.Interfaces
 {
     public interface IUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName => $"{FirstName} {LastName}";
         public string Username { get; set; }
         public string Password { get; set; }
-        public Countries Location { get; set; }
+        public int UserID { get; }
+        public Countries Location { get; }
 
-        public IUser(string username,string password,Countries location) // Kunden vill ha en konstruktor till sitt interface, kontakta microsoft 
-        {
-
-        }
-
+   
+           
     }
 }

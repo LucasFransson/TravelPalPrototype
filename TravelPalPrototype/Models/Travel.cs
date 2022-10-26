@@ -8,31 +8,35 @@ using TravelPalPrototype.Interfaces;
 
 namespace TravelPalPrototype.Models
 {
-    public abstract class Travel // Får jag ens göra den här till en abstract klass?
+    public  class Travel 
     {
-        public string Destination { get; set; } 
-        public Countries Country { get; set; } 
-        public int Travellers { get; set; }
-        public int TravelDays { get; set; }
-        public List<PackingListItem> PackingList { get; set; } 
+        public List<IPackingListItem> PackingList { get; set; }
 
+        public string Destination { get; set; }
+        public Countries DestinationCountry { get; set; } 
+        public Countries DepartureCountry { get; set; } 
+        public int NumberOfTravellers { get; set; }
+        public int TravelDuration { get; set; }
         public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
-        public DateTime EndTime { get; set; }
-
-    
-
-        public Travel(string destination, Countries country, int travellers,int travelDays,List<PackingListItem> packingList,DateTime startDate,DateTime endTime) // Måste jag ha en konstruktor då det inte ska skapas några instancer av klassen?
+        public Travel(string destination, Countries destinationCountry, Countries departureCountry, int numberOfTravelleres,DateTime startDate, DateTime endDate)
         {
             Destination = destination;
-            Country = country;
-            Travellers = travellers;
-            TravelDays = travelDays;
-            PackingList = packingList;
+            DestinationCountry = destinationCountry;
+            DepartureCountry = departureCountry;
+            NumberOfTravellers = numberOfTravelleres;
             StartDate = startDate;
-            EndTime = endTime;
+            EndDate = endDate;
         }
-        public abstract string GetInfo();
+        public string GetInfo()
+        {
+            return "";
+        }
+        public int GetTravelDuration()
+        {
+            return 0;
+        }
   
     }
 }

@@ -10,16 +10,33 @@ namespace TravelPalPrototype.Models
 {
     public class Vacation : Travel
     {
-        public Vacation(string destination, Countries country, int travellers, int travelDays, List<PackingListItem> packingList, DateTime startDate, DateTime endTime) : base(destination, country, travellers, travelDays, packingList, startDate, endTime)
+        public Vacation(string destination, 
+                        Countries destinationCountry,
+                        Countries departureCountry,
+                        int numberOfTravellers,
+                        DateTime startDate,
+                        DateTime endDate)
+            
+                        :base(destination,
+                             destinationCountry,
+                             departureCountry,
+                             numberOfTravellers,
+                             startDate,
+                             endDate)
         {
-        }
 
-        public TripTypes Type { get; } = TripTypes.Leisure;
+        }
+        public TripTypes Type { get; } = TripTypes.Vacation;
         public bool IsAllInClusive { get; set; }
 
-        public override void GetInfo()
+        public string GetInfo()
         {
+            return "";
+        }
 
+        public int GetTravelDuration()
+        {
+            return 0;
         }
     }
 }

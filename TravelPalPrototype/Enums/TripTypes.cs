@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TravelPalPrototype.Enums
 {
-    public class TripTypes
+    public enum TripTypes
     {
-
+        Leisure,
+        Work,
+        Vacation
     }
 }

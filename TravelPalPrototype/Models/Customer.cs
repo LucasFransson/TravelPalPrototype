@@ -8,21 +8,24 @@ using TravelPalPrototype.Interfaces;
 
 namespace TravelPalPrototype.Models
 {
-    public class Admin : IUser
+    public class Customer : IUser
     {
-        public string FirstName { get ; set; }
-        public string LastName { get ; set; }
+        public List<int> bookedTravelIDs { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int UserID { get; }
         public Countries Location { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int UserID { get; }
 
-
-        public Admin(string username, string password)
+        public Customer(string firstName, string lastName, string username, string password, Countries location)
         {
             this.Username = username;
             this.Password = password;
-            this.UserID = GenerateUserID();
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Location = location;
+            UserID = GenerateUserID();
         }
         public int GenerateUserID()
         {
@@ -30,3 +33,4 @@ namespace TravelPalPrototype.Models
         }
     }
 }
+
