@@ -2,12 +2,12 @@
 
 namespace TravelPalPrototype.Models
 {
-    public class PackingItem : IPackingListItem
+    public class OtherItem : IPackingListItem
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
 
-        public PackingItem(string name, int quantity)
+        public OtherItem(string name, int quantity)
         {
             Name = name;
             Quantity = quantity;
@@ -15,7 +15,7 @@ namespace TravelPalPrototype.Models
 
         public string GetInfo()
         {
-            return Name;
+            return $"{Name}";
         }
     }
 }

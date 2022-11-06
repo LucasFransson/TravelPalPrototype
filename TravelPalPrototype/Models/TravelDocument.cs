@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelPalPrototype.Interfaces;
+﻿using TravelPalPrototype.Interfaces;
 
 namespace TravelPalPrototype.Models
 {
@@ -11,11 +6,13 @@ namespace TravelPalPrototype.Models
     {
         public string Name { get; set; }
         public bool IsRequired { get; set; }
+
         public TravelDocument(string name, bool isRequired)
         {
             Name = name;
-            this.IsRequired = isRequired;
+            IsRequired = isRequired;
         }
+
         public string GetInfo()
         {
             return $"{Name}";

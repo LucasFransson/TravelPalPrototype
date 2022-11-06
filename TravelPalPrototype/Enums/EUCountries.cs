@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelPalPrototype.Enums
+﻿namespace TravelPalPrototype.Enums
 {
-    public enum EuropeanCountries
+    public enum EUCountries
     {
         Austria,
         Belgium,

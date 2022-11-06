@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelPalPrototype.Interfaces
+﻿namespace TravelPalPrototype.Interfaces
 {
-    public interface IPackingListItem 
+    public interface IPackingListItem
     {
         public string Name { get; set; }
+
         public string GetInfo();
     }
 }

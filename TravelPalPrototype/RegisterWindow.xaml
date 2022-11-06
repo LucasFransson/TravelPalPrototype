@@ -9,39 +9,39 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF272B48"/>
-                <GradientStop Color="#FF303452" Offset="0.167"/>
-                <GradientStop Color="#FF272B48" Offset="0.987"/>
+                <GradientStop Color="#FF272B48" />
+                <GradientStop Color="#FF303452" Offset="0.167" />
+                <GradientStop Color="#FF272B48" Offset="0.987" />
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
         <TextBox
             x:Name="tbxFirstName"
@@ -49,80 +49,65 @@
             Grid.Row="2" Grid.ColumnSpan="3"
             Text="First Name"
             GotFocus="tbxFirstName_GotFocus"
-            LostFocus="tbxFirstName_LostFocus"
-           
-        
-            />
+            LostFocus="tbxFirstName_LostFocus" />
         <TextBox
             x:Name="tbxLastName"
             Grid.Column="2"
             Grid.Row="4" Grid.ColumnSpan="3"
             Text="Last Name"
             GotFocus="tbxLastName_GotFocus"
-            LostFocus="tbxLastName_LostFocus"
-
-            />
+            LostFocus="tbxLastName_LostFocus" />
         <ComboBox
             x:Name="cboCountries"
             Grid.Column="6"
             Grid.ColumnSpan="3"
-            Grid.Row="3" 
+            Grid.Row="3"
             Grid.RowSpan="2"
             GotFocus="cboCountries_GotFocus"
-            LostFocus="cboCountries_LostFocus"
-            />
+            LostFocus="cboCountries_LostFocus" />
         <TextBox
             x:Name="tbxUserName"
             Grid.Column="2"
             Grid.Row="6" Grid.ColumnSpan="3"
             Text="New User Name"
             GotFocus="tbxUserName_GotFocus"
-            LostFocus="tbxUserName_LostFocus"
-        
-            />
+            LostFocus="tbxUserName_LostFocus" />
         <TextBox
             x:Name="tbxPasswordOne"
             Grid.Column="2"
             Grid.Row="8" Grid.ColumnSpan="3"
             Text="New Password"
             GotFocus="tbxPasswordOne_GotFocus"
-            LostFocus="tbxPasswordOne_LostFocus"
-         
-   
-            />
+            LostFocus="tbxPasswordOne_LostFocus" />
         <TextBox
             x:Name="tbxPasswordTwo"
             Grid.Column="2"
             Grid.Row="10" Grid.ColumnSpan="3"
             Text="Re-type New Password"
             GotFocus="tbxPasswordTwo_GotFocus"
-            LostFocus="tbxPasswordTwo_LostFocus"
-            />
-        
+            LostFocus="tbxPasswordTwo_LostFocus" />
+
         <Button
             x:Name="btnRegisterUser"
             Grid.Column="2"
-            Grid.Row="12" 
+            Grid.Row="12"
             Grid.ColumnSpan="3"
             Content="Register"
             Margin="25,0,25,0"
             Click="btnRegisterUser_Click">
 
-
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter 
-                    Property="CornerRadius" Value="10"
-                    />
+                    <Setter
+                    Property="CornerRadius" Value="10" />
                 </Style>
             </Button.Resources>
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF3C86B5" Offset="1"/>
-                    <GradientStop Color="#FF3CADB5"/>
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
     </Grid>
 </Window>

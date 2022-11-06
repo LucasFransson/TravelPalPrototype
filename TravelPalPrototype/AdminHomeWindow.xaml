@@ -1,4 +1,4 @@
-﻿<Window x:Class="TravelPalPrototype.HomeWindow"
+﻿<Window x:Class="TravelPalPrototype.AdminHomeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -122,19 +122,19 @@
             </Label.Foreground>
         </Label>
         <Button
-            x:Name="btnOpenAddTravel"
+            x:Name="btnOpenUserList"
             Grid.Column="3"
             Grid.Row="14"
             Grid.ColumnSpan="6"
             FontSize="18"
-            Content="Open Add Travel Window"
+            Content="Open User List"
             HorizontalAlignment="Left"
             Width="240"
             Height="50"
             VerticalAlignment="Top"
             Margin="0,44,0,0"
             Grid.RowSpan="2"
-           Click="btnOpenAddTravel_Click">
+            Click="btnOpenUserList_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -156,61 +156,8 @@
             Grid.Column="2"
             Grid.RowSpan="5"
             Margin="0,27,0,13" />
-
         <Button
-            x:Name="btnTrips"
-            Grid.Column="12"
-            Grid.Row="2"
-            FontSize="22"
-            Content="Trips"
-            HorizontalAlignment="Left"
-            Width="240" Height="50"
-            VerticalAlignment="Top"
-            Grid.RowSpan="2"
-            Margin="1,0,0,0"
-            Click="btnTrips_Click">
-
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter
-                        Property="CornerRadius" Value="10" />
-                </Style>
-            </Button.Resources>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF3C86B5" Offset="1" />
-                    <GradientStop Color="#FF3CADB5" />
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button
-            x:Name="btnShowVacations"
-            Grid.Column="13"
-            Grid.Row="2"
-            FontSize="22"
-            Content="Vacations"
-            HorizontalAlignment="Left"
-            Width="240" Height="50"
-            VerticalAlignment="Top"
-            Margin="17,0,0,0"
-            Grid.RowSpan="2"
-            Click="btnShowVacations_Click">
-
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter
-                        Property="CornerRadius" Value="10" />
-                </Style>
-            </Button.Resources>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF3C86B5" Offset="1" />
-                    <GradientStop Color="#FF3CADB5" />
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button
-            x:Name="btnShowTravels"
+            x:Name="btnRemoveTravel"
             Grid.Column="13"
             Grid.Row="14"
             FontSize="22"
@@ -221,7 +168,7 @@
             VerticalAlignment="Top"
             Margin="17,44,0,0"
             Grid.RowSpan="2"
-            Click="btnShowTravels_Click">
+            Click="btnRemoveTravel_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

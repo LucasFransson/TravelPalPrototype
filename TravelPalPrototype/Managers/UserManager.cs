@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using TravelPalPrototype.Enums;
 using TravelPalPrototype.Interfaces;
 using TravelPalPrototype.Models;
@@ -14,7 +11,7 @@ namespace TravelPalPrototype.Managers
     {
         public IUser SignedInUser { get; set; }
         public List<IUser> allUsers = new();
-        public List<Customer> customers = new();
+        public List<User> users = new();
         public List<Admin> admins = new();
 
         // Methods
@@ -22,22 +19,26 @@ namespace TravelPalPrototype.Managers
         // Creating Methods
         public void PopulateTestUsers()
         {
-            Admin newAdmin = new("admin", "admin");
+            Admin newAdmin = new("Admin", "Admin");
+            User user = new("Gandalf", "Efternamnsson", "Gandalf", "password", Countries.Afghanistan);
             AddUserToList(newAdmin);
-            Customer customer = new("Lucas", "Fransson", "LucasFransson", "123", Countries.Sweden);
-            AddUserToList(customer);
+            User newUser = new("Lucas", "Fransson", "LucasFransson", "123", Countries.Sweden);
+            AddUserToList(user);
         }
-        public Admin CreateNewAdim(string username, string password) 
+
+        public Admin CreateNewAdim(string username, string password)
         {
             Admin newAdmin = new(username, password);
             AddUserToList(newAdmin);
             return newAdmin;
         }
-        public void CreateNewUser(string firstName,string lastName, string username, string password, Countries location)
+
+        public void CreateNewUser(string firstName, string lastName, string username, string password, Countries location)
         {
-            Customer newCustomer = new(firstName, lastName, username, password, location);
-            AddUserToList(newCustomer);
+            User newUser = new(firstName, lastName, username, password, location);
+            AddUserToList(newUser);
         }
+
         public bool ValidateUserName(string username)
         {
             var lookForDuplicate = allUsers.FirstOrDefault(un => un.Username == username);
@@ -47,38 +48,36 @@ namespace TravelPalPrototype.Managers
             }
             else return true;
         }
-        public void AddUserToList(IUser user)
+
+        public void AddUserToList(IUser iuser)
         {
-            allUsers.Add(user);
-            if (user is Customer)
+            allUsers.Add(iuser);
+            if (iuser is User)
             {
-                Customer customer = (Customer)user;
-                customers.Add(customer);
+                User user = (User)iuser;
+                users.Add(user);
             }
-            else if (user is Admin)
+            else if (iuser is Admin)
             {
-                Admin admin = (Admin)user; 
+                Admin admin = (Admin)iuser;
                 admins.Add(admin);
             }
         }
-        // Booking Methods
-        public void CheckBookingRequest(IUser user)
-        { 
-        }
-        public void ConfirmBooking(string password)
-        {     
-        }
-        public void BookTravel(IUser user)
-        {
-        }
-        public void RemoveTravel()
-        {
 
+        public IUser FindIUserByUsername(string searchUsername)
+        {
+            return allUsers.FirstOrDefault(user => user.Username == searchUsername);
         }
+
+        public User FindUserByUsername(string searchUsername)
+        {
+            return users.FirstOrDefault(user => user.Username == searchUsername);
+        }
+
         // Log-in Methods
         public bool CheckLogin(string inputUsername, string inputPassword)
         {
-            IUser user = FindUserByUsername(inputUsername);
+            IUser user = FindIUserByUsername(inputUsername);
 
             if (CheckUsernameAndPassword(user, inputUsername, inputPassword) == true)
             {
@@ -89,9 +88,10 @@ namespace TravelPalPrototype.Managers
                 return false;
             }
         }
+
         public bool CheckUsernameAndPassword(IUser? user, string username, string password)
         {
-            if(user != null)
+            if (user != null)
             {
                 if (user.Username == username && user.Password == password)
                 {
@@ -100,35 +100,50 @@ namespace TravelPalPrototype.Managers
             }
             return false;
         }
-        // Searching Methods
 
-        public IUser FindUserByUsername(string searchUsername)
+        public Countries ParseStringCountryToEnum(string stringToParse)
         {
-            return allUsers.FirstOrDefault(user => user.Username == searchUsername);
-        }
-        //public IUser FindUserByUsername(string searchUsername) => allUsers.Where(u => u.Username == searchUsername).FirstOrDefault();
-
-        public IUser FindUserByID(int searchID)
-        {
-            return allUsers.FirstOrDefault(user => user.UserID == searchID);
-        }
-        public Admin FindAdminByUsername(string searchUsername)
-        {
-            return admins.FirstOrDefault(admin => admin.Username == searchUsername);
-        }
-        public Admin FindAdminByID(int searchID)
-        {
-            return admins.FirstOrDefault(admin => admin.UserID == searchID);
+            return (Countries)Enum.Parse(typeof(Countries), stringToParse);
         }
 
-        public Customer FindCustomerByUsername(string searchUsername)
+        public static void ChangePassword(User user, string s)
         {
-            return customers.FirstOrDefault(customer => customer.Username == searchUsername);
-        }
-        public Customer FindCustomerByID(int searchID)
-        {
-            return customers.FirstOrDefault(customer => customer.UserID == searchID);
+            user.Password = s;
         }
 
+        public static void ChangeLocation(User user, string s)
+        {
+            user.Location = TravelManager.ParseStringCountryToEnum(s);             // Detta känns bättre än att kasta in en travelManager i konstruktorn. Borde inte typ allt i Manager vara static egentligen?
+        }
+
+        public static void ChangeLastName(User user, string s)
+        {
+            user.LastName = s;
+        }
+
+        public static void ChangeFirstName(User user, string s)
+        {
+            user.FirstName = s;
+        }
+
+        public static void ChangeUsername(User user, string s)
+        {
+            user.Username = s;
+        }
+
+        public void RemoveIUser(IUser user)
+        {
+            allUsers.Remove(user);
+        }
+
+        public void RemoveUser(IUser user)
+        {
+            allUsers.Remove(user);
+        }
+
+        public void RemoveAdmin1(Admin admin)
+        {
+            allUsers.Remove(admin);
+        }
     }
 }

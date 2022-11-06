@@ -1,22 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TravelPalPrototype.Managers;
-using TravelPalPrototype.Enums;
-using TravelPalPrototype.Models;
-using TravelPalPrototype.Interfaces;
-
 
 namespace TravelPalPrototype
 {
@@ -25,21 +10,22 @@ namespace TravelPalPrototype
     /// </summary>
     public partial class MainWindow : Window
     {
-        UserManager userManager = new();
+        private UserManager userManager = new();
+
         public MainWindow()
         {
             InitializeComponent();
             userManager.PopulateTestUsers();
         }
-        bool hasUsernameBeenClicked;
-        
+
+        private bool hasUsernameBeenClicked;
+
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            
-            bool logInChecker = userManager.CheckLogin(tbxUserName.Text, pbxPassword.ToString());
+            bool logInChecker = userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString());
             if (logInChecker == true)
             {
-                HomeWindow homeWindow = new();
+                HomeWindow homeWindow = new(userManager);
                 homeWindow.Show();
                 this.Close();
             }
@@ -53,8 +39,8 @@ namespace TravelPalPrototype
         {
             RegisterWindow regWindow = new(userManager);
             regWindow.Show();
-  
         }
+
         private void tbxUserName_GotFocus(object sender, RoutedEventArgs e)
         {
             if (!hasUsernameBeenClicked)
@@ -69,7 +55,7 @@ namespace TravelPalPrototype
         {
             if (tbxUserName.Text == "")
             {
-                tbxUserName.Text = "User Name";
+                tbxUserName.Text = "Enter Username";
                 hasUsernameBeenClicked = false;
             }
         }
@@ -83,6 +69,10 @@ namespace TravelPalPrototype
         {
             pbxPassword.Focus(); // if the user clicks on the facadetextbox this method sets the focus to the pbx behind the tbx
             tbxPasswordFacade.Visibility = Visibility.Hidden;
+        }
+
+        private void tbxPasswordFacade_TextChanged(object sender, TextChangedEventArgs e)
+        {
         }
     }
 }

@@ -1,0 +1,225 @@
+﻿<Window x:Class="TravelPalPrototype.AddTravelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelPalPrototype"
+        mc:Ignorable="d"
+        Title="AddTravelWindow" Height="550" Width="800">
+
+    <Grid Margin="10,9,10,11">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF272B48" />
+                <GradientStop Color="#FF303452" Offset="0.167" />
+                <GradientStop Color="#FF272B48" Offset="0.987" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label
+            Name="lblDestination"
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="Destination:"
+            FontFamily="Arial"
+            FontSize="14"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Foreground="MediumSlateBlue" />
+
+        <Label
+            Name="lblTravelers"
+            Grid.Row="6"
+            Grid.Column="1"
+            Content="Travelers"
+            FontFamily="Arial"
+            FontSize="14"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Foreground="MediumSlateBlue" />
+        <Label
+            Name="lblTripOrVacation"
+            Grid.Row="2"
+            Grid.Column="1"
+            Content="Trip / Vacation"
+            FontFamily="Arial"
+            FontSize="14"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Foreground="MediumSlateBlue" Margin="17,10,0,0" />
+        <TextBox
+            Name="tbxDestination"
+            Grid.Row="3"
+            Grid.Column="2"
+            Foreground="MediumSlateBlue"
+            Background="Transparent"
+            BorderBrush="MediumSlateBlue"
+            VerticalContentAlignment="Center"
+            Margin="10,10,10,10" />
+
+        <TextBox
+            Name="tbxTravelers"
+            Grid.Row="6"
+            Grid.Column="2"
+            Foreground="MediumSlateBlue"
+            Background="Transparent"
+            BorderBrush="MediumSlateBlue"
+            VerticalContentAlignment="Center"
+            Margin="10,10,10,10" />
+        <ComboBox
+            Name="cboTripOrVacation"
+            Grid.Row="2"
+            Grid.Column="2"
+            Margin="10,7,10,13"
+            FontFamily="Arial"
+            SelectionChanged="cboTripOrVacation_SelectionChanged" />
+
+        <ComboBox
+            Name="cboTripChoice"
+            Grid.Row="4"
+            Grid.Column="2"
+            Margin="10,11,10,9"
+            FontFamily="Arial"
+            Visibility="Hidden" />
+        <CheckBox
+            Name="cbxAllInclusive"
+            Grid.Row="4"
+            Grid.Column="2"
+            Margin="10,12,10,10"
+            FontFamily="Arial"
+            VerticalContentAlignment="Center"
+            BorderBrush="MediumSlateBlue"
+            Foreground="MediumSlateBlue"
+            FontSize="14"
+            Visibility="Hidden"
+            Content="All Inclusive" />
+        <TextBox
+            x:Name="tbxPackInput"
+            Grid.Column="3"
+            Foreground="MediumSlateBlue"
+            Background="Transparent"
+            BorderBrush="MediumSlateBlue"
+                 Grid.Row="4"
+                 Grid.ColumnSpan="2"
+                 Margin="10,5,10,10" />
+        <ListView
+            x:Name="lvPack"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="10,11,10,0"
+            Grid.RowSpan="3"
+            Grid.Row="5" />
+        <Button
+            Name="btnSaveTravelInfo"
+            Grid.Row="7"
+            Grid.Column="2"
+            VerticalAlignment="Top"
+            Margin="10,4,10,0"
+            Content="Save"
+            FontFamily="Arial"
+            Foreground="MintCream"
+            Background="MediumSlateBlue"
+            BorderBrush="MintCream"
+            Height="30"
+            Click="btnSaveTravelInfo_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label
+            x:Name="lblCountry_Copy"
+            Grid.Row="5"
+            Grid.Column="1"
+            Content="Departing Country"
+            FontFamily="Arial"
+            FontSize="14"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Foreground="MediumSlateBlue" Margin="0,14,0,0" />
+        <ComboBox
+            x:Name="cboCountryDeparting"
+            Grid.Row="5"
+            Grid.Column="2"
+            Margin="10,11,10,10"
+            FontFamily="Arial"
+            SelectionChanged="cboCountryDeparting_SelectionChanged" />
+        <Label
+            x:Name="lblEndDate"
+            Grid.Row="2"
+            Grid.Column="4"
+            Content="End Date(YYYY/MM/DD"
+            FontFamily="Arial"
+            FontSize="10"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Foreground="MediumSlateBlue" Margin="0,8,0,0" />
+        <Label
+            x:Name="lblStartDate"
+            Grid.Row="2"
+            Grid.Column="3"
+            Content="Start Date(YYYY/MM/DD)"
+            FontFamily="Arial"
+            FontSize="10"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Foreground="MediumSlateBlue" Margin="0,9,0,0" />
+        <TextBox
+            x:Name="tbxDateStartInput"
+            Grid.Row="3"
+            Grid.Column="3"
+            Foreground="MediumSlateBlue"
+            Background="Transparent"
+            BorderBrush="MediumSlateBlue"
+            VerticalContentAlignment="Center"
+            Margin="10,11,10,10" />
+        <TextBox
+            x:Name="tbxDateEndInput"
+            Grid.Row="3"
+            Grid.Column="4"
+            Foreground="MediumSlateBlue"
+            Background="Transparent"
+            BorderBrush="MediumSlateBlue"
+            VerticalContentAlignment="Center"
+            Margin="10,10,10,10" />
+        <Button
+            x:Name="btnPackAdd"
+            Grid.Row="4"
+            Grid.Column="5"
+            VerticalAlignment="Center"
+            Margin="4,0,79,0"
+            Content="Add"
+            FontFamily="Arial"
+            Foreground="MintCream"
+            Background="MediumSlateBlue"
+            BorderBrush="MintCream"
+            Height="30"
+            Click="btnPackAdd_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

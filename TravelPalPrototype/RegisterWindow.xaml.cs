@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TravelPalPrototype.Managers;
 using TravelPalPrototype.Enums;
+using TravelPalPrototype.Managers;
 
 namespace TravelPalPrototype
 {
@@ -21,30 +11,33 @@ namespace TravelPalPrototype
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        UserManager userManager;
+        private UserManager userManager;
+
         public RegisterWindow(UserManager uManager)
         {
+            userManager = uManager;
             InitializeComponent();
 
-            userManager = uManager;
-
-            var enumList = Enum.GetValues(typeof(Countries));
-            foreach (var e in enumList)
-            {
-                cboCountries.Items.Add(e);
-            }
+            cboCountries.ItemsSource = Enum.GetNames(typeof(Countries));
         }
 
-        bool hasFirstNameBeenClicked = false;
-        bool hasLastNameBeenClicked = false;
-        bool hasUserNameBeenClicked = false;
-        bool hasPasswordOneBeenClicked = false;
-        bool hasPasswordTwoBeenClicked = false;
+        private bool hasFirstNameBeenClicked = false;
+        private bool hasLastNameBeenClicked = false;
+        private bool hasUserNameBeenClicked = false;
+        private bool hasPasswordOneBeenClicked = false;
+        private bool hasPasswordTwoBeenClicked = false;
 
         private void btnRegisterUser_Click(object sender, RoutedEventArgs e)
         {
-            userManager.CreateNewUser( tbxFirstName.Text, tbxLastName.Text, tbxUserName.Text, tbxPasswordTwo.Text, (Countries)cboCountries.SelectedItem);
-            this.Close();
+            userManager.CreateNewUser(
+                tbxFirstName.Text,
+                tbxLastName.Text,
+                tbxUserName.Text,
+                tbxPasswordTwo.Text,
+
+                (Countries)cboCountries.SelectedItem);
+
+            Close();
         }
 
         private void tbxFirstName_GotFocus(object sender, RoutedEventArgs e)
@@ -87,12 +80,10 @@ namespace TravelPalPrototype
 
         private void cboCountries_GotFocus(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void cboCountries_LostFocus(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void tbxUserName_GotFocus(object sender, RoutedEventArgs e)

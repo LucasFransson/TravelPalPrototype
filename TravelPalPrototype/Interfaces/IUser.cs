@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelPalPrototype.Enums;
+﻿using TravelPalPrototype.Enums;
 
 namespace TravelPalPrototype.Interfaces
 {
@@ -16,8 +11,5 @@ namespace TravelPalPrototype.Interfaces
         public string Password { get; set; }
         public int UserID { get; }
         public Countries Location { get; }
-
-   
-           
     }
 }
