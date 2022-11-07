@@ -7,7 +7,7 @@ namespace TravelPalPrototype.Models
 {
     public class User : IUser
     {
-        public List<int> bookedTravelIDs { get; set; }
+        public List<int> bookedTravelIDs { get; set; } = new();
         public string Username { get; set; }
         public string Password { get; set; }
         public Countries Location { get; set; }

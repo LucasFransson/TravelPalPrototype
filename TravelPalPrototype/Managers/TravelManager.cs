@@ -52,9 +52,10 @@ namespace TravelPalPrototype.Managers
             AddTravelIDToUser(foundUser, vacation);                               // Bindar användaren med resans GUID + lägger till resan i listan
         }
 
-        public static void AddTravelIDToUser(User user, Travel travel)
+        public void AddTravelIDToUser(User user, Travel travel)
         {
             user.bookedTravelIDs.Add(travel.TravelID);
+            
         }
 
         // Packinglist
