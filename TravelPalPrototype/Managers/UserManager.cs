@@ -24,6 +24,7 @@ namespace TravelPalPrototype.Managers
             AddUserToList(newAdmin);
             User newUser = new("Lucas", "Fransson", "LucasFransson", "123", Countries.Sweden);
             AddUserToList(user);
+            AddUserToList(newUser);
         }
 
         public Admin CreateNewAdim(string username, string password)
@@ -161,7 +162,7 @@ namespace TravelPalPrototype.Managers
             allUsers.Remove(user);
         }
 
-        public void RemoveAdmin1(Admin admin)
+        public void RemoveAdmin(Admin admin)
         {
             allUsers.Remove(admin);
         }

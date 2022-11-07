@@ -37,7 +37,7 @@ namespace TravelPalPrototype
                 }
                 else if(userManager.SignedInUser is Admin admin)
                 {
-                    AdminHomeWindow adminHomeWindow = new();
+                    AdminHomeWindow adminHomeWindow = new(userManager);
                     adminHomeWindow.Show();
                     this.Close();
                 }

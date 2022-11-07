@@ -21,11 +21,12 @@ namespace TravelPalPrototype
     public partial class AdminHomeWindow : Window
     {
         private TravelManager travelManager = new();
-        private UserManager userManager = new();
+        UserManager userManager;
 
-        public AdminHomeWindow()
+        public AdminHomeWindow(UserManager uManager)
         {
             InitializeComponent();
+            userManager = uManager;
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)

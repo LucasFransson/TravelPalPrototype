@@ -15,6 +15,7 @@ namespace TravelPalPrototype
     public partial class AddTravelWindow : Window
     {
 
+        public ListViewItem passport = new();
         public List<IPackingListItem> currentPackingList = new();
         private bool hasPackPass = false;
         private TravelDocument pass;
@@ -130,7 +131,7 @@ namespace TravelPalPrototype
             if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString())) && hasPackPass != true)
             {
                 pass = travelManager.CreateTravelDocumentForList("Passport", true);
-                StaticMethods.CreatePassportPackListItem(lvPack, pass);
+                StaticMethods.CreatePassportPackListItem(lvPack,passport, pass);
                 //lvPack.Items.Add(pass.Name);
                 hasPackPass = true;
             }
@@ -138,10 +139,10 @@ namespace TravelPalPrototype
             {
                 if (hasPackPass)
                 {
-                    ListViewItem pass;
-                    pass = (ListViewItem)lvPack.SelectedItem;
+                   
 
-                    lvPack.Items.Remove(pass);
+
+                    //lvPack.Items.Remove(passport);
                     hasPackPass = false;
                 }
             }

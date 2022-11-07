@@ -105,6 +105,7 @@ namespace TravelPalPrototype
                 if (travel != null)
                 {
                     travelManager.RemoveTravel(travel);
+                    UpdateUI();
                 }
             }
             catch (NullReferenceException ex)
