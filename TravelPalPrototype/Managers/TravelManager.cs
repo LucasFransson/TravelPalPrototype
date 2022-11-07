@@ -89,9 +89,10 @@ namespace TravelPalPrototype.Managers
             return travelDocument;
         }
 
-        public void CreateOtherItem(string name, int quantity)
+        public OtherItem CreateOtherItem(string name, int quantity)
         {
             OtherItem otherItem = new(name, quantity);
+            return otherItem;
         }
 
         // Remove Methods

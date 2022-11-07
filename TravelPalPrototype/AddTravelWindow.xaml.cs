@@ -152,7 +152,5 @@ namespace TravelPalPrototype
         {
 
         }
-
-        
     }
 }

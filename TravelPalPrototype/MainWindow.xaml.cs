@@ -25,8 +25,8 @@ namespace TravelPalPrototype
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            bool logInChecker = userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString());
-            if (logInChecker == true)
+        
+            if (userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString())==true)
             {
                 userManager.SignedInUser = userManager.FindIUserByUsername(tbxUserName.Text);
                 if (userManager.SignedInUser is User user)
