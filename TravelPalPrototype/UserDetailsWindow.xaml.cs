@@ -65,7 +65,7 @@ namespace TravelPalPrototype
             {
                 case "Change Username":
                     {
-                        if (userManager.ValidateUserName(tbxUsername.Text))
+                        if (userManager.ValidateUserName(tbxNewInfoOne.Text) && (userManager.CheckUsernameRequirements(tbxNewInfoOne.Text)))
                         {
                             UserManager.ChangeUsername(user, tbxNewInfoOne.Text);
                             MessageBox.Show("Username Successfully Changed!");
