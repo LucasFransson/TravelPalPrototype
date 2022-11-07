@@ -94,5 +94,10 @@ namespace TravelPalPrototype
                 }
             }
         }
+
+        private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

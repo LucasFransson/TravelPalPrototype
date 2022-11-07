@@ -251,5 +251,32 @@
             Foreground="Black"
             HorizontalAlignment="Right"
             Width="1162" />
+        <Button
+            x:Name="btnRemoveTravel"
+            Grid.Column="12"
+            Grid.Row="14"
+            FontSize="22"
+            Content="Remove Travel"
+            HorizontalAlignment="Left"
+            Width="240"
+            Height="50"
+            VerticalAlignment="Top"
+            Margin="193,43,0,0"
+            Grid.RowSpan="2"
+            Click="btnRemoveTravel_Click">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter
+                        Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

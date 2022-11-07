@@ -139,7 +139,7 @@ namespace TravelPalPrototype
             {
                 if (hasPackPass)
                 {
-                    ListViewItem pass = new ListViewItem();
+                    ListViewItem pass;
                     pass = (ListViewItem)lvPack.SelectedItem;
 
                     lvPack.Items.Remove(pass);
