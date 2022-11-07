@@ -130,19 +130,19 @@ namespace TravelPalPrototype
         {
             if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString())) && hasPackPass != true)
             {
+             
                 pass = travelManager.CreateTravelDocumentForList("Passport", true);
                 StaticMethods.CreatePassportPackListItem(lvPack,passport, pass);
-                //lvPack.Items.Add(pass.Name);
+                currentPackingList.Add(pass);   
                 hasPackPass = true;
             }
             else
             {
                 if (hasPackPass)
                 {
-                   
-
-
-                    //lvPack.Items.Remove(passport);
+                    lvPack.Items.Remove(pass);
+                    currentPackingList.Remove(pass);
+                    travelManager.UpdatePackingListView(lvPack, currentPackingList);
                     hasPackPass = false;
                 }
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Controls;
 using TravelPalPrototype.Enums;
 using TravelPalPrototype.Interfaces;
 using TravelPalPrototype.Models;
@@ -113,6 +114,14 @@ namespace TravelPalPrototype.Managers
 
         // Update Methods
 
+        public void UpdatePackingListView(ListView lv,List<IPackingListItem>packList)
+        {
+            lv.Items.Clear();
+            foreach(IPackingListItem item in packList)
+            {
+                lv.Items.Add(item);
+            }
+        }
         public void UpdateVacationByOverriding(Vacation vacation, string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime startDate, DateTime endDate)
         {
             RemoveTravel(vacation);
