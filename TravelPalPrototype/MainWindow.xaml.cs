@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using TravelPalPrototype.Managers;
+using TravelPalPrototype.Models;
 
 namespace TravelPalPrototype
 {
@@ -28,9 +29,18 @@ namespace TravelPalPrototype
             if (logInChecker == true)
             {
                 userManager.SignedInUser = userManager.FindIUserByUsername(tbxUserName.Text);
-                HomeWindow homeWindow = new(userManager);
-                homeWindow.Show();
-                this.Close();
+                if (userManager.SignedInUser is User user)
+                {
+                    HomeWindow homeWindow = new(userManager);
+                    homeWindow.Show();
+                    this.Close();
+                }
+                else if(userManager.SignedInUser is Admin admin)
+                {
+                    AdminHomeWindow adminHomeWindow = new();
+                    adminHomeWindow.Show();
+                    this.Close();
+                }
             }
             else
             {

@@ -15,10 +15,10 @@ namespace TravelPalPrototype
     public partial class AddTravelWindow : Window
     {
 
-        private List<IPackingListItem> currentPackingList = new();
+        public List<IPackingListItem> currentPackingList = new();
         private bool hasPackPass = false;
         private TravelDocument pass;
-        private Travel travel;
+        public Travel travel;
         private TravelManager travelManager;
         private UserManager userManager;
         private bool isTravelTrip = false;
@@ -93,7 +93,6 @@ namespace TravelPalPrototype
                     home.Show();
                     this.Close();
                 }
-
 
                 else
                 {
