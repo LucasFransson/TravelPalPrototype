@@ -27,6 +27,7 @@ namespace TravelPalPrototype
             bool logInChecker = userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString());
             if (logInChecker == true)
             {
+                userManager.SignedInUser = userManager.FindIUserByUsername(tbxUserName.Text);
                 HomeWindow homeWindow = new(userManager);
                 homeWindow.Show();
                 this.Close();

@@ -11,7 +11,7 @@ namespace TravelPalPrototype
     {
         UserManager userManager; // Declaration of userManager object
         private TravelManager travelManager = new(); // Creation of TravelManger object
-        
+     
 
 
         // Constructor for first opening of homewindow ( From Mainwindow/Login )
@@ -19,8 +19,10 @@ namespace TravelPalPrototype
         {
         
             InitializeComponent();
+  
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.userManager = userManager; // Reference from earlier usermanager to this usermanager
+            
             StaticMethods.SignedInUser = userManager.SignedInUser;
             UpdateUI(); // Refresh the UI with username and list content ( if any )
         }
