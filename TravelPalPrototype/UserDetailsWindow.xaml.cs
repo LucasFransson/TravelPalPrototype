@@ -98,13 +98,23 @@ namespace TravelPalPrototype
                     }
                 case "Change Password":
                     {
-                        UserManager.ChangePassword(user, tbxNewInfoOne.Text);
-                        MessageBox.Show("Password Successfully Changed!");
-                        ToggleInputElementsOff();
-                        break;
+                        if (userManager.CheckPasswordRequirements(tbxNewInfoOne.Text))
+                        {
+                            UserManager.ChangePassword(user, tbxNewInfoOne.Text);
+                            MessageBox.Show("Password Successfully Changed!");
+                            ToggleInputElementsOff();
+
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password does not meet the requirements. Password needs to be atleast 5 characters long.");
+                            break;
+                        }
                     }
                 default:
                     {
+                        
                         MessageBox.Show("Invalid Input");
                         ToggleInputElementsOff();
                         break;
