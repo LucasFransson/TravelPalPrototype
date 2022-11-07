@@ -65,8 +65,10 @@ namespace TravelPalPrototype
                     dtpStart.SelectedDate, dtpEnd.SelectedDate);
 
                     MessageBox.Show("Trip Plan successfully Created!");
-                    this.Close();
+                    
                     HomeWindow home = new(userManager, travelManager);
+                    home.Show();
+                    this.Close();
                 }
 
 
@@ -86,8 +88,10 @@ namespace TravelPalPrototype
                         dtpStart.SelectedDate, dtpEnd.SelectedDate);
 
                     MessageBox.Show("Vacation Plan successfully Created!");
-                    this.Close();
+              
                     HomeWindow home = new(userManager, travelManager);
+                    home.Show();
+                    this.Close();
                 }
 
 

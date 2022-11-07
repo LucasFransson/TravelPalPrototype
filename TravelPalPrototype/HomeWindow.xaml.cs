@@ -42,6 +42,7 @@ namespace TravelPalPrototype
         {
             AddTravelWindow addTravelWindow = new AddTravelWindow(userManager, travelManager);
             addTravelWindow.Show();
+            this.Close();
         }
 
         // Logic for displaying all Travels in the list
