@@ -30,12 +30,7 @@ namespace TravelPalPrototype.Managers
         public void CreateTrip(string destination, Countries country, int nrTravellers, TripTypes type, DateTime? startDate, DateTime? endDate)
         {
             Trip trip = new(destination, country, nrTravellers, type, startDate, endDate);
-
-            //bool isPassportNeeded = CheckIfPassportIsNeeded(country);
-            //if (isPassportNeeded)
-            //{
-            //    CreateRequiredPassportTravelDocument(trip);
-            //}
+ 
             AddTravel(trip);
 
             User foundUser = (User)StaticMethods.SignedInUser;                     
@@ -154,7 +149,7 @@ namespace TravelPalPrototype.Managers
             trip.EndDate = endDate;
         }
 
-        public DateTime ParseStringToDateTime(String fullDate)
+        public DateTime ParseStringToDateTime(String fullDate)        // Changed to datepicker instead of own method
         {
             int year = int.Parse(fullDate.Substring(0, 4));
             int month = int.Parse(fullDate.Substring(4, 2));

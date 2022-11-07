@@ -149,7 +149,30 @@ namespace TravelPalPrototype
 
         private void btnPackAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            if (cbxIsDocument.IsChecked == true)
+            {
+               currentPackingList.Add(travelManager.CreateTravelDocumentForList(tbxPackInput.Text, (bool)cbxIsItemRequired.IsChecked));
+            }
+            else if(cbxIsDocument.IsChecked == false)
+            {
+                currentPackingList.Add(travelManager.CreateOtherItem(tbxPackInput.Text, StaticMethods.TryParse(tbxQtyInput.Text)));
+            }
         }
+
+        private void cbxIsDocument_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbxIsDocument.IsChecked == true)
+            {
+                cbxIsItemRequired.Visibility = Visibility.Visible;
+                tbxQtyInput.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                cbxIsItemRequired.Visibility = Visibility.Hidden;
+                tbxQtyInput.Visibility = Visibility.Visible;
+            }
+        }
+
+
     }
 }
