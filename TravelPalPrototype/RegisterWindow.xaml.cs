@@ -11,7 +11,7 @@ namespace TravelPalPrototype
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        private UserManager userManager;
+        private UserManager userManager;  // Creating the Usermanager object
 
         public RegisterWindow(UserManager uManager)
         {
@@ -21,24 +21,53 @@ namespace TravelPalPrototype
             cboCountries.ItemsSource = Enum.GetNames(typeof(Countries));
         }
 
+        // bools for watermark feature in textboxes
+
         private bool hasFirstNameBeenClicked = false;
         private bool hasLastNameBeenClicked = false;
         private bool hasUserNameBeenClicked = false;
         private bool hasPasswordOneBeenClicked = false;
         private bool hasPasswordTwoBeenClicked = false;
 
+        // Logic for User registration
+
         private void btnRegisterUser_Click(object sender, RoutedEventArgs e)
         {
-            userManager.CreateNewUser(
-                tbxFirstName.Text,
-                tbxLastName.Text,
-                tbxUserName.Text,
-                tbxPasswordTwo.Text,
+            if (userManager.CheckUsernameRequirements(tbxUserName.Text)==true)
+            {
+                if(userManager.CheckPasswordRequirements(tbxPasswordTwo.Text)==true)
+                {
+                    if(userManager.ValidateUserName(tbxUserName.Text))
+                    {
+                        userManager.CreateNewUser(
+                                    tbxFirstName.Text,
+                                    tbxLastName.Text,
+                                    tbxUserName.Text,
+                                    tbxPasswordTwo.Text,
 
-                (Countries)cboCountries.SelectedItem);
+                                    (Countries)cboCountries.SelectedItem);
 
-            Close();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An User with that Username is already registered. Please choose another name.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Your password does not meet the requirement. Please choose a password that is atleast 5 characters long.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your Username does not meet the requirements. Please choose a Username that is atleast 3 characters long.");
+            }
+
+
         }
+
+        // Logic that replicates watermark feature in textboxes
 
         private void tbxFirstName_GotFocus(object sender, RoutedEventArgs e)
         {

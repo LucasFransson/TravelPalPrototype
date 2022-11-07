@@ -20,6 +20,8 @@ namespace TravelPalPrototype
 
         private bool hasUsernameBeenClicked;
 
+        // Log in Logic
+
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
             bool logInChecker = userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString());
@@ -31,15 +33,19 @@ namespace TravelPalPrototype
             }
             else
             {
-                MessageBox.Show("Invalid Input");
+                MessageBox.Show("Invalid Input of Username or Password");
             }
         }
+
+        // Open up Register Window
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow regWindow = new(userManager);
             regWindow.Show();
         }
+
+        // Logic that replicates watermark feature in textboxes
 
         private void tbxUserName_GotFocus(object sender, RoutedEventArgs e)
         {

@@ -30,18 +30,40 @@ namespace TravelPalPrototype.Managers
         {
             Trip trip = new(destination, country, nrTravellers, type, startDate, endDate);
 
-            bool isPassportNeeded = CheckIfPassportIsNeeded(country);
-            if (isPassportNeeded)
-            {
-                CreateRequiredPassportTravelDocument(trip);
-            }
+            //bool isPassportNeeded = CheckIfPassportIsNeeded(country);
+            //if (isPassportNeeded)
+            //{
+            //    CreateRequiredPassportTravelDocument(trip);
+            //}
             AddTravel(trip);
+
+            User foundUser = (User)StaticMethods.SignedInUser;                     
+            trip.BookedByUserID = foundUser.UserID;                             // Bindar resan med användarens GUID
+            AddTravelIDToUser(foundUser, trip);                               // Bindar användaren med resans GUID + lägger till resan i listan
         }
 
         public void CreateVacation(string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime? startDate, DateTime? endDate)
         {
             Vacation vacation = new(destination, country, nrTravellers, isAllInclusive, startDate, endDate);
             AddTravel(vacation);
+
+            User foundUser = (User)StaticMethods.SignedInUser;
+            vacation.BookedByUserID = foundUser.UserID;                             // Bindar resan med användarens GUID
+            AddTravelIDToUser(foundUser, vacation);                               // Bindar användaren med resans GUID + lägger till resan i listan
+        }
+
+        public static void AddTravelIDToUser(User user, Travel travel)
+        {
+            user.bookedTravelIDs.Add(travel.TravelID);
+        }
+
+        // Packinglist
+        public void AddPackingListToTravel(Travel travel, List<IPackingListItem> packingList)
+        {
+            foreach(var packing in packingList)
+            {
+                travel.PackingList.Add(packing);
+            }
         }
 
         public void AddItemToPackingList(Travel travel, IPackingListItem item)

@@ -75,6 +75,7 @@ namespace TravelPalPrototype.Managers
         }
 
         // Log-in Methods
+
         public bool CheckLogin(string inputUsername, string inputPassword)
         {
             IUser user = FindIUserByUsername(inputUsername);
@@ -100,6 +101,25 @@ namespace TravelPalPrototype.Managers
             }
             return false;
         }
+
+        public bool CheckUsernameRequirements(string username)
+        {
+            if (username.Length >= 3)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckPasswordRequirements(string password)
+        {
+            if (password.Length >= 5)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         public Countries ParseStringCountryToEnum(string stringToParse)
         {

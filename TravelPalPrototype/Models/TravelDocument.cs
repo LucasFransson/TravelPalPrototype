@@ -17,5 +17,10 @@ namespace TravelPalPrototype.Models
         {
             return $"{Name}";
         }
+
+        public string GetBooleanInfo(bool b)
+        {
+            return $"{Name} = {b}";
+        }
     }
 }

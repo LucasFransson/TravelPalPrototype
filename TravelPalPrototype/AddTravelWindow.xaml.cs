@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using TravelPalPrototype.Enums;
+using TravelPalPrototype.Interfaces;
 using TravelPalPrototype.Managers;
 using TravelPalPrototype.Models;
 
@@ -12,6 +14,8 @@ namespace TravelPalPrototype
     /// </summary>
     public partial class AddTravelWindow : Window
     {
+
+        private List<IPackingListItem> currentPackingList = new();
         private bool hasPackPass = false;
         private TravelDocument pass;
         private Travel travel;
@@ -20,6 +24,7 @@ namespace TravelPalPrototype
         private bool isTravelTrip = false;
         private bool isTravelVacation = false;
 
+        // Constructor for opening of Add travel window from home
         public AddTravelWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
@@ -31,54 +36,69 @@ namespace TravelPalPrototype
             cboTripOrVacation.Items.Add("Vacation");
             cboTripOrVacation.Items.Add("Trip");
         }
-
+        // Constructor for opening edit travel 
         public AddTravelWindow(Travel t)
         {
             InitializeComponent();
             travel = t;
         }
 
+        // Logic for saving travels
         private void btnSaveTravelInfo_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? dStart = null;
-            DateTime? dEnd = null;
-            try { dStart = travelManager.ParseStringToDateTime(tbxDateStartInput.ToString()); }
-            catch (FormatException) { MessageBox.Show("Start Date was not in the correct format. Please enter the information again with the format YYYY/MM/DD"); }
-            try { dEnd = travelManager.ParseStringToDateTime(tbxDateEndInput.ToString()); }
-            catch (FormatException) { MessageBox.Show("Start Date was not in the correct format. Please enter the information again with the format YYYY/MM/DD"); }
-
-            if (isTravelTrip)
+            DateTime? dStart;
+            DateTime? dEnd;
+            try
             {
-                travelManager.CreateTrip(tbxDestination.Text,
-                TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
-                int.Parse(tbxTravelers.Text),
-                travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
-                dStart, dEnd);
-                MessageBox.Show("Trip Plan successfully Created!");
-                this.Close();
-                HomeWindow home = new(userManager, travelManager);
-            }
-            else if (isTravelVacation)
-            {
-                bool isAllInclusive = false;
+                try { dStart = dtpStart.SelectedDate; }
+                catch (FormatException) { MessageBox.Show("The Start date picked was not available/correct. Please try again"); }
+                try { dEnd = dtpEnd.SelectedDate; }
+                catch (FormatException) { MessageBox.Show("The End Date picked was not available/correct. Please try again"); }
 
-                if (cbxAllInclusive.IsChecked == true)
+                if (isTravelTrip)
                 {
-                    isAllInclusive = true;
-                }
-                travelManager.CreateVacation
-                    (tbxDestination.Text,
+                    travelManager.CreateTrip(tbxDestination.Text,
                     TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
-                    int.Parse(tbxTravelers.Text),
-                    isAllInclusive,
-                    dStart, dEnd);
-                MessageBox.Show("Vacation Plan successfully Created!");
-                this.Close();
-                HomeWindow home = new(userManager, travelManager);
+                    StaticMethods.TryParse(tbxTravelers.Text),
+                    //int.Parse(tbxTravelers.Text),
+                    travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
+                    dtpStart.SelectedDate, dtpEnd.SelectedDate);
+
+                    MessageBox.Show("Trip Plan successfully Created!");
+                    this.Close();
+                    HomeWindow home = new(userManager, travelManager);
+                }
+
+
+                else if (isTravelVacation)
+                {
+                    bool isAllInclusive = false;
+
+                    if (cbxAllInclusive.IsChecked == true)
+                    {
+                        isAllInclusive = true;
+                    }
+                    travelManager.CreateVacation
+                        (tbxDestination.Text,
+                        TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
+                        StaticMethods.TryParse(tbxTravelers.Text),
+                        isAllInclusive,
+                        dtpStart.SelectedDate, dtpEnd.SelectedDate);
+
+                    MessageBox.Show("Vacation Plan successfully Created!");
+                    this.Close();
+                    HomeWindow home = new(userManager, travelManager);
+                }
+
+
+                else
+                {
+                    MessageBox.Show("Invalid Input. You have to pick Trip/Vacation");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Invalid Input. You have to pick Trip/Vacation");
+                MessageBox.Show("There was an error saving your travel plan. Please try again and make sure all the fields are entered correctly.");
             }
         }
 
@@ -107,14 +127,17 @@ namespace TravelPalPrototype
             if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString())) && hasPackPass != true)
             {
                 pass = travelManager.CreateTravelDocumentForList("Passport", true);
-                lvPack.Items.Add(pass.Name);
+                StaticMethods.CreatePassportPackListItem(lvPack, pass);
+                //lvPack.Items.Add(pass.Name);
                 hasPackPass = true;
             }
             else
             {
                 if (hasPackPass)
                 {
-                    lvPack.Items.Clear(); // tar även bort allt annt så dont do this. testar bara
+                    ListViewItem pass = new ListViewItem();
+                    pass = (ListViewItem)lvPack.SelectedItem;
+
                     lvPack.Items.Remove(pass);
                     hasPackPass = false;
                 }
@@ -125,5 +148,7 @@ namespace TravelPalPrototype
         {
 
         }
+
+        
     }
 }
