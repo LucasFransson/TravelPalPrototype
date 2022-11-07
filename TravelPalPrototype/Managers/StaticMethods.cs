@@ -18,7 +18,7 @@ namespace TravelPalPrototype.Managers
             bool isNumber = int.TryParse(input, out number);
             if (!isNumber)
             {
-                return 0;
+                return 1; // If no traveller is added set the default traveller to 1
             }
             else return number;
         }

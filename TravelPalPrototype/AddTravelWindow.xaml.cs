@@ -61,7 +61,6 @@ namespace TravelPalPrototype
                     travelManager.CreateTrip(tbxDestination.Text,
                     TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
                     StaticMethods.TryParse(tbxTravelers.Text),
-                    //int.Parse(tbxTravelers.Text),
                     travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
                     dtpStart.SelectedDate, dtpEnd.SelectedDate);
 
