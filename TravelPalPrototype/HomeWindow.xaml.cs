@@ -113,12 +113,17 @@ namespace TravelPalPrototype
 
         private void btnEditTravel_Click(object sender, RoutedEventArgs e)
         {
-            var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
+            try
+            {
+                var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
             if (travel != null)
             {
                 AddTravelWindow addTravelWindow = new(travel);
                 addTravelWindow.Show();
             }
+            }
+            catch (NullReferenceException ex)
+            { MessageBox.Show("You must select a travel plan to remove."); }
         }
     }
 }
