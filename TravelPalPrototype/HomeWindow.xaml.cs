@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using TravelPalPrototype.Managers;
 using TravelPalPrototype.Models;
 
@@ -11,18 +13,18 @@ namespace TravelPalPrototype
     {
         UserManager userManager; // Declaration of userManager object
         private TravelManager travelManager = new(); // Creation of TravelManger object
-     
+
 
 
         // Constructor for first opening of homewindow ( From Mainwindow/Login )
         public HomeWindow(UserManager userManager)
         {
-        
+
             InitializeComponent();
-  
+
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.userManager = userManager; // Reference from earlier usermanager to this usermanager
-            
+
             StaticMethods.SignedInUser = userManager.SignedInUser;
             UpdateUI(); // Refresh the UI with username and list content ( if any )
         }
@@ -73,7 +75,7 @@ namespace TravelPalPrototype
         }
         // Logic for displaying all Vacations in the list
         private void btnShowVacations_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             lvBookedTravels.Items.Clear();  // Clearing the listview 
             foreach (Vacation vac in travelManager.travels)
             {
@@ -97,7 +99,16 @@ namespace TravelPalPrototype
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var travel = travelManager.travels.FirstOrDefault(t => t.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
+                if (travel != null)
+                {
+                    travelManager.RemoveTravel(travel);
+                }
+            }
+            catch (NullReferenceException ex)
+            { MessageBox.Show("You must select a travel plan to remove."); }
         }
     }
 }
