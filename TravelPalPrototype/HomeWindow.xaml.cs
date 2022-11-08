@@ -117,7 +117,7 @@ namespace TravelPalPrototype
                 var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
                 if (travel != null)
                 {
-                    AddTravelWindow addTravelWindow = new(travel);
+                    AddTravelWindow addTravelWindow = new(travelManager,travel);
                     addTravelWindow.Show();
                     this.Close();
                 }
