@@ -44,9 +44,14 @@ namespace TravelPalPrototype
             sb.AppendLine($"EndDate: {travel.EndDate}");
             sb.AppendLine($"Duration: {travel.TravelDuration} days");
 
-            //tbxTravelInfo.Text = sb.ToString();
+            tbxTravelInfo.Text = sb.ToString();
 
-            lvTravelPackList.ItemsSource = t.PackingList;
+
+            foreach(var item in t.PackingList)
+            {
+                lvTravelPackList.Items.Add(item.GetInfo());
+            }
+            //lvTravelPackList.ItemsSource = t.PackingList;
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
@@ -59,6 +64,7 @@ namespace TravelPalPrototype
         private void btnChangeTravel_Click(object sender, RoutedEventArgs e)
         {
             AddTravelWindow addTravelWindow = new(travel);
+            addTravelWindow.Show();
             this.Close();
         }
 

@@ -334,7 +334,7 @@
             Grid.ColumnSpan="3"
             Grid.Row="13"
             Height="35"
-            >
+            Click="btnRemoveTravel_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -356,7 +356,7 @@
                 Grid.ColumnSpan="2"
                 Grid.Row="13"
                 Height="35"
-               >
+               Click="btnEditTravel_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter

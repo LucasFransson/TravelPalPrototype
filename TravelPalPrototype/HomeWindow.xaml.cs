@@ -141,6 +141,8 @@ namespace TravelPalPrototype
         {
             var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
             TravelDetailsWindow travelDetailsWindow = new(travelManager,travel);
+            travelDetailsWindow.Show();
+            this.Close();
 
         }
 
