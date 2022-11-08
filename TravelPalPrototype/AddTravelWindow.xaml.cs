@@ -38,10 +38,34 @@ namespace TravelPalPrototype
         }
 
         // Constructor for opening edit travel
-        public AddTravelWindow(Travel t)
+        public AddTravelWindow(TravelManager tManager,Travel t)
         {
             InitializeComponent();
+            travelManager = tManager;
             travel = t;
+            cboCountryDestination.ItemsSource = Enum.GetNames(typeof(Countries));
+            cboTripChoice.ItemsSource = Enum.GetNames(typeof(TripTypes));
+            cboTripOrVacation.Items.Add("Vacation");
+            cboTripOrVacation.Items.Add("Trip");
+
+            tbxDestination.Text = travel.Destination;
+            cboCountryDestination.SelectedItem = travel.Country;
+            tbxTravelers.Text = travel.NumberOfTravellers.ToString();
+            dtpStart.Text = travel.StartDate.ToString();
+            dtpEnd.Text = travel.EndDate.ToString();
+
+            if (travel is Vacation vacation)
+            {
+                cboTripOrVacation.Text = "Vacation";
+                cbxAllInclusive.Visibility = Visibility.Hidden;
+                cbxAllInclusive.Content = vacation.IsAllInClusive;
+            }
+            else if (travel is Trip trip)
+            {
+                cboTripOrVacation.Text = "Trip";
+                cboTripChoice.Visibility = Visibility.Visible;
+                cboTripChoice.SelectedItem = trip.Type;
+            }
         }
 
         // Logic for saving travels
