@@ -113,7 +113,7 @@ namespace TravelPalPrototype.Managers
             lv.Items.Clear();
             foreach (IPackingListItem item in packList)
             {
-                lv.Items.Add(item);
+                lv.Items.Add(item.GetInfo());
             }
         }
 

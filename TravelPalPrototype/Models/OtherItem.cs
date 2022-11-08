@@ -13,14 +13,9 @@ namespace TravelPalPrototype.Models
             Quantity = quantity;
         }
 
-        public string GetFullInfo()
-        {
-            return $"{Name} Quantity: {Quantity}";
-        }
-
         public string GetInfo()
         {
-            return $"{Name}";
+            return $"{Name} Quantity: {Quantity}";
         }
     }
 }

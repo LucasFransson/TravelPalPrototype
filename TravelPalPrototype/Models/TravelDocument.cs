@@ -13,14 +13,11 @@ namespace TravelPalPrototype.Models
             IsRequired = isRequired;
         }
 
+
         public string GetInfo()
         {
-            return $"{Name}";
+            return $"{Name} = {IsRequired}";
         }
 
-        public string GetBooleanInfo(bool b)
-        {
-            return $"{Name} = {b}";
-        }
     }
 }
