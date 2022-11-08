@@ -168,5 +168,10 @@ namespace TravelPalPrototype
                 tbxQtyInput.Visibility = Visibility.Visible;
             }
         }
+
+        private void btnRemovePack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
