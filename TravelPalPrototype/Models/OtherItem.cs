@@ -17,6 +17,7 @@ namespace TravelPalPrototype.Models
         {
             return $"{Name} Quantity: {Quantity}";
         }
+
         public string GetInfo()
         {
             return $"{Name}";

@@ -30,10 +30,10 @@ namespace TravelPalPrototype.Managers
         public void CreateTrip(string destination, Countries country, int nrTravellers, TripTypes type, DateTime? startDate, DateTime? endDate)
         {
             Trip trip = new(destination, country, nrTravellers, type, startDate, endDate);
- 
+
             AddTravel(trip);
 
-            User foundUser = (User)StaticMethods.SignedInUser;                     
+            User foundUser = (User)StaticMethods.SignedInUser;
             trip.BookedByUserID = foundUser.UserID;                             // Bindar resan med användarens GUID
             AddTravelIDToUser(foundUser, trip);                               // Bindar användaren med resans GUID + lägger till resan i listan
         }
@@ -51,13 +51,12 @@ namespace TravelPalPrototype.Managers
         public void AddTravelIDToUser(User user, Travel travel)
         {
             user.bookedTravelIDs.Add(travel.TravelID);
-            
         }
 
         // Packinglist
         public void AddPackingListToTravel(Travel travel, List<IPackingListItem> packingList)
         {
-            foreach(var packing in packingList)
+            foreach (var packing in packingList)
             {
                 travel.PackingList.Add(packing);
             }
@@ -109,14 +108,15 @@ namespace TravelPalPrototype.Managers
 
         // Update Methods
 
-        public void UpdatePackingListView(ListView lv,List<IPackingListItem>packList)
+        public void UpdatePackingListView(ListView lv, List<IPackingListItem> packList)
         {
             lv.Items.Clear();
-            foreach(IPackingListItem item in packList)
+            foreach (IPackingListItem item in packList)
             {
                 lv.Items.Add(item);
             }
         }
+
         public void UpdateVacationByOverriding(Vacation vacation, string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime startDate, DateTime endDate)
         {
             RemoveTravel(vacation);

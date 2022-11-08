@@ -114,7 +114,6 @@ namespace TravelPalPrototype
                     }
                 default:
                     {
-                        
                         MessageBox.Show("Invalid Input");
                         ToggleInputElementsOff();
                         break;

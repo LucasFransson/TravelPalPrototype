@@ -21,7 +21,7 @@ namespace TravelPalPrototype
     public partial class AdminHomeWindow : Window
     {
         private TravelManager travelManager = new();
-        UserManager userManager;
+        private UserManager userManager;
 
         public AdminHomeWindow(UserManager uManager)
         {

@@ -14,11 +14,10 @@ namespace TravelPalPrototype.Models
         public Countries Country { get; set; }
         public int NumberOfTravellers { get; set; }
         public int TravelDuration { get; set; }
-        public int BookedByUserID { get; set; }  
-        public int TravelID { get; set; }   
+        public int BookedByUserID { get; set; }
+        public int TravelID { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-    
 
         public Travel(string destination, Countries country, int numberOfTravelleres, DateTime? startDate, DateTime? endDate)
         {
@@ -45,6 +44,7 @@ namespace TravelPalPrototype.Models
         {
             return 0;
         }
+
         public void SetTravelID()
         {
             TravelID = StaticMethods.GenerateGUID();

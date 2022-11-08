@@ -14,7 +14,6 @@ namespace TravelPalPrototype
     /// </summary>
     public partial class AddTravelWindow : Window
     {
-
         public ListViewItem passport = new();
         public List<IPackingListItem> currentPackingList = new();
         private bool hasPackPass = false;
@@ -37,7 +36,8 @@ namespace TravelPalPrototype
             cboTripOrVacation.Items.Add("Vacation");
             cboTripOrVacation.Items.Add("Trip");
         }
-        // Constructor for opening edit travel 
+
+        // Constructor for opening edit travel
         public AddTravelWindow(Travel t)
         {
             InitializeComponent();
@@ -65,13 +65,11 @@ namespace TravelPalPrototype
                     dtpStart.SelectedDate, dtpEnd.SelectedDate);
 
                     MessageBox.Show("Trip Plan successfully Created!");
-                    
+
                     HomeWindow home = new(userManager, travelManager);
                     home.Show();
                     this.Close();
                 }
-
-
                 else if (isTravelVacation)
                 {
                     bool isAllInclusive = false;
@@ -88,12 +86,11 @@ namespace TravelPalPrototype
                         dtpStart.SelectedDate, dtpEnd.SelectedDate);
 
                     MessageBox.Show("Vacation Plan successfully Created!");
-              
+
                     HomeWindow home = new(userManager, travelManager);
                     home.Show();
                     this.Close();
                 }
-
                 else
                 {
                     MessageBox.Show("Invalid Input. You have to pick Trip/Vacation");
@@ -129,10 +126,9 @@ namespace TravelPalPrototype
         {
             if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString())) && hasPackPass != true)
             {
-             
                 pass = travelManager.CreateTravelDocumentForList("Passport", true);
-                StaticMethods.CreatePassportPackListItem(lvPack,passport, pass);
-                currentPackingList.Add(pass);   
+                StaticMethods.CreatePassportPackListItem(lvPack, passport, pass);
+                currentPackingList.Add(pass);
                 hasPackPass = true;
             }
             else
@@ -151,9 +147,9 @@ namespace TravelPalPrototype
         {
             if (cbxIsDocument.IsChecked == true)
             {
-               currentPackingList.Add(travelManager.CreateTravelDocumentForList(tbxPackInput.Text, (bool)cbxIsItemRequired.IsChecked));
+                currentPackingList.Add(travelManager.CreateTravelDocumentForList(tbxPackInput.Text, (bool)cbxIsItemRequired.IsChecked));
             }
-            else if(cbxIsDocument.IsChecked == false)
+            else if (cbxIsDocument.IsChecked == false)
             {
                 currentPackingList.Add(travelManager.CreateOtherItem(tbxPackInput.Text, StaticMethods.TryParse(tbxQtyInput.Text)));
             }
@@ -172,7 +168,5 @@ namespace TravelPalPrototype
                 tbxQtyInput.Visibility = Visibility.Visible;
             }
         }
-
-
     }
 }

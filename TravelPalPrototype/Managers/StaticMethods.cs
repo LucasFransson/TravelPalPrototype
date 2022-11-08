@@ -8,10 +8,12 @@ namespace TravelPalPrototype.Managers
     public static class StaticMethods
     {
         public static IUser SignedInUser { get; set; }
+
         public static int GenerateGUID()
         {
             return Guid.NewGuid().GetHashCode();
         }
+
         public static int TryParse(string input)
         {
             int number;
@@ -38,9 +40,9 @@ namespace TravelPalPrototype.Managers
                 listView.Items.Add(packItem.GetInfo());
             }
         }
-        public static void CreatePassportPackListItem(ListView listView,ListViewItem lvItem, IPackingListItem packItem)
+
+        public static void CreatePassportPackListItem(ListView listView, ListViewItem lvItem, IPackingListItem packItem)
         {
-            
             lvItem.Tag = packItem;
             if (packItem is TravelDocument td)
             {

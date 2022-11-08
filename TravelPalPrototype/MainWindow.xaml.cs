@@ -25,8 +25,7 @@ namespace TravelPalPrototype
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-        
-            if (userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString())==true)
+            if (userManager.CheckLogin(tbxUserName.Text, pbxPassword.Password.ToString()) == true)
             {
                 userManager.SignedInUser = userManager.FindIUserByUsername(tbxUserName.Text);
                 if (userManager.SignedInUser is User user)
@@ -35,7 +34,7 @@ namespace TravelPalPrototype
                     homeWindow.Show();
                     this.Close();
                 }
-                else if(userManager.SignedInUser is Admin admin)
+                else if (userManager.SignedInUser is Admin admin)
                 {
                     AdminHomeWindow adminHomeWindow = new(userManager);
                     adminHomeWindow.Show();

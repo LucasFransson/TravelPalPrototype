@@ -189,13 +189,11 @@
         <DatePicker x:Name="dtpStart"
             Grid.Column="2"
             Grid.Row="4"
-            VerticalAlignment="Center"
-            />
+            VerticalAlignment="Center" />
         <DatePicker x:Name="dtpEnd"
             Grid.Column="2"
             Grid.Row="5"
-            VerticalAlignment="Center"
-            />
+            VerticalAlignment="Center" />
         <Button
             x:Name="btnPackAdd"
             Grid.Row="6"
@@ -224,8 +222,7 @@
             FontSize="14"
             Margin="10,0,0,0"
             VerticalContentAlignment="Center" BorderBrush="#FFE0E0E0" Foreground="#FFC1ECB1"
-                  Click="cbxIsDocument_Click"
-                  />
+                  Click="cbxIsDocument_Click" />
         <TextBox
             x:Name="tbxQtyInput"
             Grid.Row="4"
@@ -244,7 +241,6 @@
             VerticalContentAlignment="Center"
             Content="Is Required"
             Margin="10,0,0,0"
-            Visibility="Hidden"
-            />
+            Visibility="Hidden" />
     </Grid>
 </Window>

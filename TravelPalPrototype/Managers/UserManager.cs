@@ -121,7 +121,6 @@ namespace TravelPalPrototype.Managers
             return false;
         }
 
-
         public Countries ParseStringCountryToEnum(string stringToParse)
         {
             return (Countries)Enum.Parse(typeof(Countries), stringToParse);

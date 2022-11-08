@@ -33,11 +33,11 @@ namespace TravelPalPrototype
 
         private void btnRegisterUser_Click(object sender, RoutedEventArgs e)
         {
-            if (userManager.CheckUsernameRequirements(tbxUserName.Text)==true)
+            if (userManager.CheckUsernameRequirements(tbxUserName.Text) == true)
             {
-                if(userManager.CheckPasswordRequirements(tbxPasswordTwo.Text)==true)
+                if (userManager.CheckPasswordRequirements(tbxPasswordTwo.Text) == true)
                 {
-                    if(userManager.ValidateUserName(tbxUserName.Text))
+                    if (userManager.ValidateUserName(tbxUserName.Text))
                     {
                         userManager.CreateNewUser(
                                     tbxFirstName.Text,
@@ -63,8 +63,6 @@ namespace TravelPalPrototype
             {
                 MessageBox.Show("Your Username does not meet the requirements. Please choose a Username that is atleast 3 characters long.");
             }
-
-
         }
 
         // Logic that replicates watermark feature in textboxes
