@@ -128,5 +128,21 @@ namespace TravelPalPrototype
         private void btnRemoveravel_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void btnShowDetails_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void btnEditTravel_Click_1(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void btnRemoveTravel_Click_1(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

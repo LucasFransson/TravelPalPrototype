@@ -59,5 +59,10 @@ namespace TravelPalPrototype
             AddTravelWindow addTravelWindow = new(travel);
             // this.Close();
         }
+
+        private void btnEditTravel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

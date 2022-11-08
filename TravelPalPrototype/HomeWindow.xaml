@@ -61,7 +61,7 @@
         <Label x:Name="lblBackGroundVerticalLeft"
                Grid.RowSpan="15"
                BorderThickness="10,10,10,10"
-               FontSize="44"  Grid.ColumnSpan="7" Grid.Column="1" Margin="0,2,0,0">
+               FontSize="44"  Grid.ColumnSpan="5" Grid.Column="1" Margin="0,2,0,0">
             <Label.BorderBrush>
                 <RadialGradientBrush>
                     <GradientStop Color="Black" />
@@ -84,8 +84,8 @@
 
         <Label
             x:Name="lblUserBackground"
-            Grid.Column="9"
-            Grid.RowSpan="14" Grid.Row="1">
+            Grid.Column="7"
+            Grid.RowSpan="16" Margin="0,0,0,-12">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -101,8 +101,10 @@
         </Label>
         <Label
             x:Name="lblListviewBackground"
-            Grid.Column="11"
-            Grid.RowSpan="10" Grid.Row="3" Margin="0,5,0,10" Grid.ColumnSpan="9">
+            Grid.Column="10"
+            Grid.ColumnSpan="9"
+            Grid.Row="4"
+            Grid.RowSpan="9">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -120,13 +122,14 @@
         <Label
             x:Name="lblUserHeadline"
             BorderThickness="5,5,5,5"
-            Grid.Column="2"
+            Grid.Column="1"
             Grid.RowSpan="4"
             Grid.ColumnSpan="5"
             FontSize="22"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Margin="0,19,0,48">
+            Height="80"
+            Width="200">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -137,8 +140,9 @@
         <Button
             x:Name="btnOpenAddTravel"
             Grid.Column="2"
-            Grid.ColumnSpan="5"
+            Grid.ColumnSpan="3"
             Grid.Row="4"
+            Height="35"
             Content="Create New Travel Plan"
 
            Click="btnOpenAddTravel_Click">
@@ -159,9 +163,11 @@
 
         <Button x:Name="btnShowDetails"
                 Content="Show Travel Details"
-                Grid.Column="11"
+                Grid.Column="17"
                 Grid.Row="13"
-                Grid.ColumnSpan="2">
+                Grid.ColumnSpan="2"
+                Height="35"
+                Click="btnShowDetails_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -178,13 +184,14 @@
 
         <Button x:Name="btnAboutUs"
                 Content="About Us"
-                Grid.Row="12"
-                Grid.Column="3"
-                Grid.ColumnSpan="3">
+                Grid.Row="10"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Height="35">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
-                                        Property="CornerRadius" Value="10" />
+                    Property="CornerRadius" Value="10" />
                 </Style>
             </Button.Resources>
             <Button.Background>
@@ -196,11 +203,11 @@
         </Button>
 
         <Button x:Name="btnAccountSettings"
-                            Content="Account Settings"
-
-                Grid.Row="13"
-                Grid.Column="3"
-                Grid.ColumnSpan="3">
+                Content="Account Settings"
+                Grid.Row="11"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Height="35">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -217,12 +224,15 @@
         </Button>
 
         <Button x:Name="btnLogOut"
-                            Content="Logout"
-                            FontSize="20"
-                            Foreground="#FFDEDEDE"
-                Grid.Row="14"
-                Grid.Column="3"
-                Grid.ColumnSpan="3">
+                Content="Logout"
+                FontSize="20"
+                Foreground="#FFDEDEDE"
+
+                Height="40"
+                Grid.Row="13"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Click="btnLogOut_Click" Margin="0,5,0,5">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -239,10 +249,11 @@
 
         <Button
             x:Name="btnTrips"
-            Grid.Column="3"
-            Grid.Row="10"
             Content="View All Trip Plans"
+            Grid.Column="2"
             Grid.ColumnSpan="3"
+            Grid.Row="8"
+            Height="35"
             Click="btnTrips_Click">
 
             <Button.Resources>
@@ -260,10 +271,10 @@
         </Button>
         <Button
             x:Name="btnShowVacations"
-            Grid.Column="3"
+            Grid.Column="2"
             Grid.ColumnSpan="3"
-            Grid.Row="8"
-
+            Grid.Row="7"
+            Height="35"
             Content="View All Vacation Plans"
             Click="btnShowVacations_Click">
 
@@ -282,10 +293,12 @@
         </Button>
         <Button
             x:Name="btnShowTravels"
-            Grid.Column="3"
-            Grid.Row="6"
             Content="View All Travel Plans"
-            Click="btnShowTravels_Click" Grid.ColumnSpan="3">
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+            Height="35"
+            Click="btnShowTravels_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -310,17 +323,18 @@
         <ListBox
             x:Name="lvBookedTravels"
             Grid.Row="4"
-            Grid.RowSpan="8"
-            Grid.Column="12"
-            Grid.ColumnSpan="7"
-            Foreground="Black" />
+            Grid.RowSpan="9"
+            Grid.Column="10"
+            Grid.ColumnSpan="9"
+            Foreground="Black" Margin="25,25,25,25" />
         <Button
-            x:Name="btnRemoveravel"
-            Grid.Column="17"
+            x:Name="btnRemoveTravel"
+            Content="Remove Travel"
+            Grid.Column="10"
             Grid.ColumnSpan="3"
             Grid.Row="13"
-            Content="Remove Travel"
-            Click="btnRemoveravel_Click">
+            Height="35"
+            Click="btnRemoveTravel_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -340,7 +354,9 @@
             Content="Edit Travel Plan"
                 Grid.Column="14"
                 Grid.ColumnSpan="2"
-                Grid.Row="13">
+                Grid.Row="13"
+                Height="35"
+                Click="btnEditTravel_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -354,5 +370,22 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Label
+            x:Name="lblUserHeadline_Copy"
+            BorderThickness="5,5,5,5"
+            Grid.Column="12"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="5"
+            FontSize="22"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Height="80">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
     </Grid>
 </Window>

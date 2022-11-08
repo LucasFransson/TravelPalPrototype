@@ -171,7 +171,6 @@ namespace TravelPalPrototype
 
         private void btnRemovePack_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPalPrototype"
         mc:Ignorable="d"
-Title="TravelDetailsWindow" Height="600" Width="800">
+Title="TravelDetailsWindow" Height="768" Width="1024">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,55 +15,151 @@ Title="TravelDetailsWindow" Height="600" Width="800">
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="30*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="20*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <Label />
 
         <ListView
             x:Name="lvTravelSelected"
+            Grid.Column="3"
             Grid.ColumnSpan="7"
-            Grid.Row="1" Margin="55,30,55,0" />
+            Grid.Row="5" 
+            />
+        <ListView
+            x:Name="lvTravelPackList"
+            Grid.Column="12" 
+            Grid.ColumnSpan="6"
+            Grid.Row="7" 
+            Grid.RowSpan="5"
+            />
         <TextBox
             x:Name="tbxTravelInfo"
+            Grid.Column="3"
             Grid.ColumnSpan="7"
-            Grid.Row="2"
-            Grid.RowSpan="5"
-            IsReadOnlyCaretVisible="True" Margin="55,42,55,0" />
-        <Button
-            x:Name="btnChangeTravel"
-            Grid.Column="4"
-            Margin="54,28,138,42"
-            Grid.RowSpan="2"
             Grid.Row="7"
+            Grid.RowSpan="5"
+            IsReadOnlyCaretVisible="True"   />
+        <Button
+            x:Name="btnEditTravel"
+            Content="Edit Travel"
+            Grid.Column="8"
             Grid.ColumnSpan="2"
-            Content="Change Travel"
-            Click="btnChangeTravel_Click" />
+            Grid.Row="12"
+            Height="35"
+            Click="btnEditTravel_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter
+                    Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
         <Button
             x:Name="btnRemoveTravel"
-            Grid.Column="3"
-            Margin="54,28,138,42"
-            Grid.RowSpan="2"
-            Grid.Row="7"
-            Grid.ColumnSpan="2"
             Content="Remove Travel"
-            Click="btnRemoveTravel_Click" />
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Grid.Row="6" 
+            Height="30"
+            Click="btnRemoveTravel_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter
+                    Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button
+            x:Name="btnRemoveItem"
+            Content="Remove"
+            Grid.Row="12"
+            Grid.Column="17"
+            Height="30"
+            >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter
+                    Property="CornerRadius" Value="10" />
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Label
+            x:Name="lblTopBackground"
+            Grid.ColumnSpan="21"
+            Grid.RowSpan="2"
+            Grid.Row="1" Margin="0,0,-34,0" >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Label.Background>
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
     </Grid>
 </Window>

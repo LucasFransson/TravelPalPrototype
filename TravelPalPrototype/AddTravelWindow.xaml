@@ -38,8 +38,6 @@
             <ColumnDefinition Width="50" />
             <ColumnDefinition Width="50" />
             <ColumnDefinition Width="50" />
-
-
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
@@ -107,7 +105,7 @@
             x:Name="lblDestination"
             Grid.Row="4"
             Grid.Column="2"
-            Grid.ColumnSpan="2"  
+            Grid.ColumnSpan="2"
             Content="Destination:"
             FontFamily="Arial"
             FontSize="14">
@@ -122,12 +120,11 @@
         <Label
             x:Name="lblTravelers"
             Grid.Row="8"
-            Grid.Column="6" 
-            Grid.ColumnSpan="2" 
+            Grid.Column="6"
+            Grid.ColumnSpan="2"
             Content="Travelers"
             FontFamily="Arial"
-            FontSize="14"
-            >
+            FontSize="14">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -139,11 +136,10 @@
         <Label x:Name="lblTripType"
                Content="Trip Type"
                Grid.Row="10"
-               Grid.Column="2" 
+               Grid.Column="2"
                Grid.ColumnSpan="3"
                FontFamily="Arial"
-               FontSize="14"
-  >
+               FontSize="14">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -161,7 +157,7 @@
             FontSize="14"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            Grid.ColumnSpan="2" >
+            Grid.ColumnSpan="2">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -183,8 +179,7 @@
             Grid.Column="6"
             Foreground="MediumSlateBlue"
             BorderBrush="MediumSlateBlue"
-            VerticalContentAlignment="Center" Grid.ColumnSpan="3"
-             />
+            VerticalContentAlignment="Center" Grid.ColumnSpan="3" />
         <ComboBox
             x:Name="cboTripOrVacation"
             Grid.Row="9"
@@ -198,7 +193,7 @@
             Grid.Column="2"
             Grid.ColumnSpan="3"
             FontFamily="Arial"
-            Visibility="Visible"  />
+            Visibility="Visible" />
         <CheckBox
             x:Name="cbxAllInclusive"
             Grid.Row="11"
@@ -209,13 +204,12 @@
             Foreground="#FF3CADB5"
             FontSize="14"
             Visibility="Visible"
-            Content="All Inclusive"  />
+            Content="All Inclusive" />
         <TextBox
             x:Name="tbxPackInput"
             Grid.Column="14"
                  Grid.Row="6"
-                 Grid.ColumnSpan="5"
-            />
+                 Grid.ColumnSpan="5" />
         <ListView
             x:Name="lvPack"
             Grid.Column="14"
@@ -230,7 +224,7 @@
             Content="Save"
             FontFamily="Arial"
 
-            Click="btnSaveTravelInfo_Click"   >
+            Click="btnSaveTravelInfo_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -251,8 +245,7 @@
             Grid.ColumnSpan="3"
             Content="Destination Country"
             FontFamily="Arial"
-            FontSize="14"
-           >
+            FontSize="14">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -266,7 +259,7 @@
             Grid.Column="6"
             Grid.ColumnSpan="3"
             FontFamily="Arial"
-            SelectionChanged="cboCountryDeparting_SelectionChanged"  />
+            SelectionChanged="cboCountryDeparting_SelectionChanged" />
         <Label
             x:Name="lblEndDate"
             Grid.Row="6"
@@ -289,8 +282,7 @@
             Content="Start Date(YYYY/MM/DD)"
             FontFamily="Arial"
             FontSize="10"
-            Grid.ColumnSpan="3"
-            >
+            Grid.ColumnSpan="3">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -299,16 +291,13 @@
             </Label.Foreground>
         </Label>
 
-
         <DatePicker x:Name="dtpStart"
             Grid.Column="2"
-            Grid.Row="7" Grid.ColumnSpan="3"
-            />
+            Grid.Row="7" Grid.ColumnSpan="3" />
         <DatePicker x:Name="dtpEnd"
             Grid.Column="6"
-            Grid.Row="7" 
-                    Grid.ColumnSpan="3"
-            />
+            Grid.Row="7"
+                    Grid.ColumnSpan="3" />
         <Button
             x:Name="btnPackAdd"
             Grid.Row="6"
@@ -354,12 +343,12 @@
             Grid.Column="14"
             FontFamily="Arial"
             FontSize="14"
-    
+
             VerticalContentAlignment="Center"
 
             Content="Is Required"
-            Visibility="Visible" 
-            Foreground="#FF3CADB5" Grid.ColumnSpan="2"/>
+            Visibility="Visible"
+            Foreground="#FF3CADB5" Grid.ColumnSpan="2" />
         <Label
             x:Name="lblUserBackground"
             Grid.Column="11"
