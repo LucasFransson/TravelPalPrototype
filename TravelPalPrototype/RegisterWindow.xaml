@@ -57,6 +57,15 @@
             Text="Last Name"
             GotFocus="tbxLastName_GotFocus"
             LostFocus="tbxLastName_LostFocus" />
+        <Label
+            x:Name="lblCountry"
+            Content="Country"
+            VerticalAlignment="Bottom"
+            Foreground="#FF3CADB5"
+            Grid.Row="2"
+            Grid.Column="6" 
+            Grid.ColumnSpan="2"
+            />
         <ComboBox
             x:Name="cboCountries"
             Grid.Column="6"
