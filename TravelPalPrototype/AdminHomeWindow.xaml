@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPalPrototype"
         mc:Ignorable="d"
-  Title="HomeWindow" Height="900" Width="1800">
+  Title="HomeWindow" Height="900" Width="1000">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,40 +15,48 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="18*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="45*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
 
-            <ColumnDefinition Width="27*" />
-            <ColumnDefinition Width="429*" />
-            <ColumnDefinition Width="394*" />
-            <ColumnDefinition Width="327*" />
+
         </Grid.ColumnDefinitions>
         <Label
             x:Name="lblUserBackground"
@@ -77,16 +85,15 @@
             HorizontalAlignment="Center" Margin="0,41,0,0" Grid.RowSpan="2" />
         <Label
             x:Name="lblVacationsHeadline"
-            Grid.Column="3"
+            Grid.Column="5"
             Grid.Row="9"
-            Grid.ColumnSpan="5"
             Content="Vacations"
             FontSize="20"
-            HorizontalAlignment="Center" />
+            HorizontalAlignment="Center" Margin="0,0,0,54" Grid.RowSpan="2" />
         <Label
             x:Name="lblListviewBackground"
-            Grid.Column="11"
-            Grid.RowSpan="12" Grid.Row="3" Margin="0,25,70,25" Grid.ColumnSpan="3">
+            Grid.Column="10"
+            Grid.RowSpan="12" Grid.Row="3" Margin="30,25,0,25" Grid.ColumnSpan="9">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -125,7 +132,7 @@
             x:Name="btnOpenUserList"
             Grid.Column="3"
             Grid.Row="14"
-            Grid.ColumnSpan="6"
+            Grid.ColumnSpan="5"
             FontSize="18"
             Content="Open User List"
             HorizontalAlignment="Left"
@@ -158,7 +165,7 @@
             Margin="0,27,0,13" />
         <Button
             x:Name="btnRemoveTravel"
-            Grid.Column="13"
+            Grid.Column="14"
             Grid.Row="14"
             FontSize="22"
             Content="Show Travels"
@@ -193,13 +200,13 @@
             />-->
         <ListBox
             x:Name="lvBookedTravels"
-            Grid.Row="3"
+            Grid.Row="4"
+            Grid.RowSpan="11"
+            Margin="0,4,25,47"
             Grid.Column="11"
-            Grid.RowSpan="12"
-            Margin="0,54,100,47"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="8"
             Foreground="Black"
             HorizontalAlignment="Right"
-            Width="1162" />
+            Width="1337" />
     </Grid>
 </Window>

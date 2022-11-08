@@ -32,7 +32,7 @@ namespace TravelPalPrototype
 
             travelManager = tManager;
             userManager = uManager;
-            cboCountryDeparting.ItemsSource = Enum.GetNames(typeof(Countries));
+            cboCountryDestination.ItemsSource = Enum.GetNames(typeof(Countries));
             cboTripChoice.ItemsSource = Enum.GetNames(typeof(TripTypes));
             cboTripOrVacation.Items.Add("Vacation");
             cboTripOrVacation.Items.Add("Trip");
@@ -59,7 +59,7 @@ namespace TravelPalPrototype
                 if (isTravelTrip)
                 {
                     travelManager.CreateTrip(tbxDestination.Text,
-                    TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
+                    TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                     StaticMethods.TryParse(tbxTravelers.Text),
                     travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
                     dtpStart.SelectedDate, dtpEnd.SelectedDate);
@@ -82,7 +82,7 @@ namespace TravelPalPrototype
                     }
                     travelManager.CreateVacation
                         (tbxDestination.Text,
-                        TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString()),
+                        TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                         StaticMethods.TryParse(tbxTravelers.Text),
                         isAllInclusive,
                         dtpStart.SelectedDate, dtpEnd.SelectedDate);
@@ -127,7 +127,7 @@ namespace TravelPalPrototype
 
         private void cboCountryDeparting_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDeparting.SelectedItem.ToString())) && hasPackPass != true)
+            if (travelManager.CheckIfPassportIsNeeded(TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString())) && hasPackPass != true)
             {
              
                 pass = travelManager.CreateTravelDocumentForList("Passport", true);

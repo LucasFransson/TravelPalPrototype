@@ -160,7 +160,7 @@
             HorizontalAlignment="Center"
             Foreground="MediumSlateBlue" Margin="0,14,0,0" />
         <ComboBox
-            x:Name="cboCountryDeparting"
+            x:Name="cboCountryDestination"
             Grid.Row="7"
             Grid.Column="2"
             Margin="10,11,10,10"
