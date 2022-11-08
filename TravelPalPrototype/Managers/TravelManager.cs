@@ -27,25 +27,27 @@ namespace TravelPalPrototype.Managers
             }
         }
 
-        public void CreateTrip(string destination, Countries country, int nrTravellers, TripTypes type, DateTime? startDate, DateTime? endDate)
+        public void CreateTrip(string destination, Countries country, int nrTravellers, TripTypes type, DateTime? startDate, DateTime? endDate, List<IPackingListItem> packingList)
         {
             Trip trip = new(destination, country, nrTravellers, type, startDate, endDate);
 
             AddTravel(trip);
 
             User foundUser = (User)StaticMethods.SignedInUser;
-            trip.BookedByUserID = foundUser.UserID;                             // Bindar resan med användarens GUID
+            trip.BookedByUserID = foundUser.UserID;                           // Bindar resan med användarens GUID
             AddTravelIDToUser(foundUser, trip);                               // Bindar användaren med resans GUID + lägger till resan i listan
+            AddPackingListToTravel(trip, packingList);                        // Adds the current packinglist to the travel
         }
 
-        public void CreateVacation(string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime? startDate, DateTime? endDate)
+        public void CreateVacation(string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime? startDate, DateTime? endDate,List<IPackingListItem> packingList)
         {
             Vacation vacation = new(destination, country, nrTravellers, isAllInclusive, startDate, endDate);
             AddTravel(vacation);
 
             User foundUser = (User)StaticMethods.SignedInUser;
-            vacation.BookedByUserID = foundUser.UserID;                             // Bindar resan med användarens GUID
+            vacation.BookedByUserID = foundUser.UserID;                           // Bindar resan med användarens GUID
             AddTravelIDToUser(foundUser, vacation);                               // Bindar användaren med resans GUID + lägger till resan i listan
+            AddPackingListToTravel(vacation, packingList);                        // Adds the current packinglist to the travel
         }
 
         public void AddTravelIDToUser(User user, Travel travel)
@@ -117,16 +119,16 @@ namespace TravelPalPrototype.Managers
             }
         }
 
-        public void UpdateVacationByOverriding(Vacation vacation, string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime startDate, DateTime endDate)
+        public void UpdateVacationByOverriding(Vacation vacation, string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime startDate, DateTime endDate, List<IPackingListItem> packingList)
         {
             RemoveTravel(vacation);
-            CreateVacation(destination, country, nrTravellers, isAllInclusive, startDate, endDate);
+            CreateVacation(destination, country, nrTravellers, isAllInclusive, startDate, endDate,packingList);
         }
 
-        public void UpdateTripByOverriding(Trip trip, string destination, Countries country, int nrTravellers, TripTypes type, DateTime startDate, DateTime endDate)
+        public void UpdateTripByOverriding(Trip trip, string destination, Countries country, int nrTravellers, TripTypes type, DateTime startDate, DateTime endDate, List<IPackingListItem> packingList)
         {
             RemoveTravel(trip);
-            CreateTrip(destination, country, nrTravellers, type, startDate, endDate);
+            CreateTrip(destination, country, nrTravellers, type, startDate, endDate,packingList);
         }
 
         public void UpdateVacationByChanging(Vacation vacation, string destination, Countries country, int nrTravellers, bool isAllInclusive, DateTime startDate, DateTime endDate)

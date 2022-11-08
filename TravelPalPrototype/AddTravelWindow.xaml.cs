@@ -62,7 +62,7 @@ namespace TravelPalPrototype
                     TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                     StaticMethods.TryParse(tbxTravelers.Text),
                     travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
-                    dtpStart.SelectedDate, dtpEnd.SelectedDate);
+                    dtpStart.SelectedDate, dtpEnd.SelectedDate,currentPackingList);
 
                     MessageBox.Show("Trip Plan successfully Created!");
 
@@ -83,7 +83,7 @@ namespace TravelPalPrototype
                         TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                         StaticMethods.TryParse(tbxTravelers.Text),
                         isAllInclusive,
-                        dtpStart.SelectedDate, dtpEnd.SelectedDate);
+                        dtpStart.SelectedDate, dtpEnd.SelectedDate,currentPackingList);
 
                     MessageBox.Show("Vacation Plan successfully Created!");
 
@@ -175,49 +175,18 @@ namespace TravelPalPrototype
         private void btnRemovePack_Click(object sender, RoutedEventArgs e)
         {
 
-            //ListViewItem item = lvPack.SelectedItem as ListViewItem;
-            //if (item != null)
-            //{
-            //    if (item.Tag ==)
-            //}
-
-            //IPackingListItem item = lvPack.SelectedItem.tag as IPackingListItem;
-            //currentPackingList.Remove(item);
-
-            //ListViewItem item = lvPack.SelectedItem. as ListViewItem;
-            //IPackingListItem ip = (IPackingListItem)item.Tag.GetType();
-            //ip
-   
-            string listViewInfo = lvPack.SelectedItem.ToString();
-            IPackingListItem itemToRemove = currentPackingList.Find(i=>i.GetInfo()==listViewInfo);
-            currentPackingList.Remove(itemToRemove);
-            lvPack.Items.Remove(lvPack.SelectedItem);
-            travelManager.UpdatePackingListView(lvPack,currentPackingList);
-
-
-
-            //ListView listView = sender as ListView;
-            //Driver selectedDriver = listView.SelectedItem;
-            //ListViewItem item = (ListViewItem)
-            //    listView.ItemContainerGenerator.ContainerFromItem(selectedDriver);
-
-
-            //IPackingListItem selectedItem;
-            //ListViewItem selectedItem = (ListViewItem)lvPack.SelectedItems;
-            //// = (IPackingListItem)lvPack.SelectedItem;
-
-            //if (selectedItem != null)
-            //{   
-            //    //ListViewItem lvi = selectedItem as ListViewItem;
-            //    IPackingListItem listViewInfo = selectedItem.Tag as IPackingListItem;
-            //    currentPackingList.Remove(listViewInfo);
-
-            //    //if(selectedItem is TravelDocument td)
-            //    //{
-            //    //    TravelDocument listViewInfo = td.Tag as TravelDocument;
-            //    //    currentPackingList.Remove(listViewInfo);
-            //    //}
-
+            string? listViewInfo = lvPack.SelectedItem.ToString();
+            if (listViewInfo != null)
+            {
+                IPackingListItem itemToRemove = currentPackingList.Find(i => i.GetInfo() == listViewInfo);
+                currentPackingList.Remove(itemToRemove);
+                lvPack.Items.Remove(lvPack.SelectedItem);
+                travelManager.UpdatePackingListView(lvPack, currentPackingList);
+            }
+            else
+            {
+                MessageBox.Show("You must select an item to remove.");
+            }
 
         }
             
