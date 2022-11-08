@@ -32,7 +32,7 @@ namespace TravelPalPrototype.Models
 
         public virtual string GetDisplayInfo()
         {
-            return "";
+            return $"Destination: {Destination} | Country: {Country}";
         }
 
         public virtual string GetInfo()

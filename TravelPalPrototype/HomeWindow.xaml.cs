@@ -90,7 +90,7 @@ namespace TravelPalPrototype
                 lvBookedTravels.Items.Clear();  // Clearing the listview
                 foreach (var travel in travelManager.travels)
                 {
-                    lvBookedTravels.Items.Add(travel.GetInfo());
+                    lvBookedTravels.Items.Add(travel.GetDisplayInfo());
                 }
             }
         }
@@ -119,30 +119,30 @@ namespace TravelPalPrototype
                 {
                     AddTravelWindow addTravelWindow = new(travel);
                     addTravelWindow.Show();
+                    this.Close();
                 }
             }
             catch (NullReferenceException ex)
             { MessageBox.Show("You must select a travel plan to remove."); }
         }
 
-        private void btnRemoveravel_Click(object sender, RoutedEventArgs e)
-        {
-        }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
+            userManager.SignedInUser = null;
+            StaticMethods.SignedInUser = null;
+           
+            MainWindow mWindow = new();
+            mWindow.Show();
+            this.Close();
         }
 
         private void btnShowDetails_Click(object sender, RoutedEventArgs e)
         {
+            var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
+            TravelDetailsWindow travelDetailsWindow = new(travelManager,travel);
+
         }
 
-        private void btnEditTravel_Click_1(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void btnRemoveTravel_Click_1(object sender, RoutedEventArgs e)
-        {
-        }
     }
 }

@@ -38,13 +38,15 @@ namespace TravelPalPrototype
                 sb.AppendLine($"All Inclusive: {vacation.IsAllInClusive}");
             }
 
-            sb.AppendLine($"Departing from: {travel.Country}");
+            sb.AppendLine($"Destination Country: {travel.Country}");
             sb.AppendLine($"Number Of Travellers: {travel.NumberOfTravellers}");
             sb.AppendLine($"StartDate: {travel.StartDate}");
             sb.AppendLine($"EndDate: {travel.EndDate}");
             sb.AppendLine($"Duration: {travel.TravelDuration} days");
 
-            tbxTravelInfo.Text = sb.ToString();
+            //tbxTravelInfo.Text = sb.ToString();
+
+            lvTravelPackList.ItemsSource = t.PackingList;
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
@@ -57,7 +59,7 @@ namespace TravelPalPrototype
         private void btnChangeTravel_Click(object sender, RoutedEventArgs e)
         {
             AddTravelWindow addTravelWindow = new(travel);
-            // this.Close();
+            this.Close();
         }
 
         private void btnEditTravel_Click(object sender, RoutedEventArgs e)
