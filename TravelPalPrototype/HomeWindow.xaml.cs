@@ -54,7 +54,7 @@ namespace TravelPalPrototype
             foreach (var travel in travelManager.travels)
             {
                 lvBookedTravels.Items.Add(travel.GetInfo());
-                lvTrips.Items.Add(travel.GetInfo());
+                //lvTrips.Items.Add(travel.GetInfo());
             }
         }
 
@@ -125,6 +125,11 @@ namespace TravelPalPrototype
             }
             catch (NullReferenceException ex)
             { MessageBox.Show("You must select a travel plan to remove."); }
+        }
+
+        private void btnRemoveravel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
