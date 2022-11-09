@@ -18,6 +18,16 @@ namespace TravelPalPrototype.Managers
             travelManager = tManager;
             userManager = uManager;
         }
+
+
+        public void ShowAllUsers(ListView lvDisplay)
+        {
+            lvDisplay.Items.Clear();
+            foreach(var user in userManager.users)
+            {
+                lvDisplay.Items.Add(user.Username);
+            }
+        }
         public List<Travel> FindAllTravelsByUserID(int userID)
         {
             return travelManager.travels.FindAll(t => t.TravelID == userID);

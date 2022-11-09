@@ -11,12 +11,13 @@ namespace TravelPalPrototype
     {
         private TravelManager travelManager = new();
         private UserManager userManager;
-        private AdminController adminController = new();
+        private AdminController adminController;
 
         public AdminHomeWindow(UserManager uManager)
         {
             InitializeComponent();
             userManager = uManager;
+            adminController = new(travelManager,userManager);
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
@@ -29,6 +30,7 @@ namespace TravelPalPrototype
 
         private void btnOpenUserList_Click(object sender, RoutedEventArgs e)
         {
+            adminController.ShowAllUsers(lvBookedTravels);
         }
     }
 }

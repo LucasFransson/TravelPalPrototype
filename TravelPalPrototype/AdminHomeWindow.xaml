@@ -321,7 +321,7 @@
             Grid.RowSpan="5"
             Margin="0,39,0,1"
             />-->
-        <ListBox
+        <ListView
             x:Name="lvBookedTravels"
             Grid.Row="4"
             Grid.RowSpan="9"
