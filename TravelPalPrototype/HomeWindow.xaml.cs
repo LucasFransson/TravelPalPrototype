@@ -148,5 +148,14 @@ namespace TravelPalPrototype
 
         }
 
+        private void btnAccountSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAboutUs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

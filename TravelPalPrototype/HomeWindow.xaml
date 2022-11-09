@@ -187,7 +187,9 @@
                 Grid.Row="10"
                 Grid.Column="2"
                 Grid.ColumnSpan="3"
-                Height="35">
+                Height="35"
+                Click="btnAboutUs_Click"
+                >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -207,8 +209,9 @@
                 Grid.Row="11"
                 Grid.Column="2"
                 Grid.ColumnSpan="3"
-                Height="35">
-
+                Height="35"
+                Click="btnAccountSettings_Click"
+                >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter

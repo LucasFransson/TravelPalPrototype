@@ -24,14 +24,51 @@ namespace TravelPalPrototype
         {
             string travelInfo = lvBookedTravels.SelectedItem.ToString();
             travelManager.RemoveSelectedTravel(travelInfo);
-            //var travel = travelManager.travels.FirstOrDefault(travel => travel.GetDisplayInfo() == travelInfo);
-
-            //travelManager.RemoveTravel(travel);
         }
 
         private void btnOpenUserList_Click(object sender, RoutedEventArgs e)
         {
             adminController.ShowAllUsers(lvBookedTravels);
+        }
+
+        private void btnEditTravel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnShowDetails_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnShowTravels_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnShowVacations_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTrips_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAboutUs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAccountSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
