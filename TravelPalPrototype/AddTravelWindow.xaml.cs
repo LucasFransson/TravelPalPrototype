@@ -76,22 +76,20 @@ namespace TravelPalPrototype
         // Logic for saving travels
         private void btnSaveTravelInfo_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? dStart;
-            DateTime? dEnd;
-            try
-            {
-                try { dStart = dtpStart.SelectedDate; }
-                catch (FormatException) { MessageBox.Show("The Start date picked was not available/correct. Please try again"); }
-                try { dEnd = dtpEnd.SelectedDate; }
-                catch (FormatException) { MessageBox.Show("The End Date picked was not available/correct. Please try again"); }
 
+            if (dtpStart.SelectedDate == null || dtpEnd.SelectedDate == null || tbxDestination.Text==null || cboCountryDestination.SelectedItem==null)
+            {
+                MessageBox.Show("One or more input fields were empty. Please try again and make sure all the required information is correctly filled in.");
+            }
+            else
+            {
                 if (isTravelTrip)
                 {
                     travelManager.CreateTrip(tbxDestination.Text,
                     TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                     StaticMethods.TryParse(tbxTravelers.Text),
                     travelManager.ParseStringTtypeToEnum(cboTripChoice.SelectedItem.ToString()),
-                    dtpStart.SelectedDate, dtpEnd.SelectedDate,currentPackingList);
+                    dtpStart.SelectedDate, dtpEnd.SelectedDate, currentPackingList);
 
                     MessageBox.Show("Trip Plan successfully Created!");
 
@@ -112,7 +110,7 @@ namespace TravelPalPrototype
                         TravelManager.ParseStringCountryToEnum(cboCountryDestination.SelectedItem.ToString()),
                         StaticMethods.TryParse(tbxTravelers.Text),
                         isAllInclusive,
-                        dtpStart.SelectedDate, dtpEnd.SelectedDate,currentPackingList);
+                        dtpStart.SelectedDate, dtpEnd.SelectedDate, currentPackingList);
 
                     MessageBox.Show("Vacation Plan successfully Created!");
 
@@ -125,10 +123,7 @@ namespace TravelPalPrototype
                     MessageBox.Show("Invalid Input. You have to pick Trip/Vacation");
                 }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("There was an error saving your travel plan. Please try again and make sure all the fields are entered correctly.");
-            }
+           
         }
 
         private void cboTripOrVacation_SelectionChanged(object sender, SelectionChangedEventArgs e)
