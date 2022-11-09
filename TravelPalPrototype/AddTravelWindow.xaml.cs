@@ -188,11 +188,13 @@ namespace TravelPalPrototype
             {
                 cbxIsItemRequired.Visibility = Visibility.Visible;
                 tbxQtyInput.Visibility = Visibility.Hidden;
+                lblQuantity.Visibility = Visibility.Hidden;
             }
             else
             {
                 cbxIsItemRequired.Visibility = Visibility.Hidden;
                 tbxQtyInput.Visibility = Visibility.Visible;
+                lblQuantity.Visibility = Visibility.Visible;
             }
         }
 

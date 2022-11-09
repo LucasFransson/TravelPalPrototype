@@ -303,22 +303,24 @@
             x:Name="btnPackAdd"
             Grid.Row="6"
             Grid.Column="19"
-            Content="Add"
+            Content="+"
+            FontSize="40"
+            FontWeight="Black"
             FontFamily="Arial"
-
-            Click="btnPackAdd_Click">
+            Background="Transparent"
+            Click="btnPackAdd_Click" Margin="0,0,10,0">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
                     Property="CornerRadius" Value="10" />
                 </Style>
             </Button.Resources>
-            <Button.Background>
+            <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
                     <GradientStop Color="#FF3CADB5" />
                 </LinearGradientBrush>
-            </Button.Background>
+            </Button.Foreground>
         </Button>
         <CheckBox x:Name="cbxIsDocument"
             Content="Document"
@@ -334,17 +336,17 @@
             Click="cbxIsDocument_Click" />
         <TextBox
             x:Name="tbxQtyInput"
-            Grid.Row="4"
-            Grid.Column="15"
+            Grid.Row="5"
+            Grid.Column="18"
             VerticalAlignment="Center"
             Height="30"
             Width="40"
-            Visibility="Hidden" />
+            Visibility="Visible"  />
         <CheckBox
             x:Name="cbxIsItemRequired" 
             Content="Is Required"
-            Grid.Row="4"
-            Grid.Column="14"
+            Grid.Row="5"
+            Grid.Column="17"
             Grid.ColumnSpan="2"
             FontFamily="Arial"
             FontSize="14"
@@ -375,8 +377,9 @@
             Grid.Column="18"
             Content="Remove"
             FontFamily="Arial"
+            Height="25"
 
-            Click="btnRemovePack_Click">
+            Click="btnRemovePack_Click" Foreground="White">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter
@@ -385,10 +388,26 @@
             </Button.Resources>
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF3C86B5" Offset="1" />
-                    <GradientStop Color="#FF3CADB5" />
+                    <GradientStop Color="#FF5C0C1B" Offset="1" />
+                    <GradientStop Color="#FFD54646" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Label
+            x:Name="lblQuantity"
+            Grid.Row="4"
+            Grid.Column="18"
+            Grid.ColumnSpan="2"
+            Content="Quantity"
+            VerticalContentAlignment="Bottom"
+            FontFamily="Arial"
+            FontSize="14">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C86B5" Offset="1" />
+                    <GradientStop Color="#FF3CADB5" />
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
     </Grid>
 </Window>
