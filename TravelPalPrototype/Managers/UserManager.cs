@@ -200,7 +200,7 @@ namespace TravelPalPrototype.Managers
                 lv.Items.Add(travel.GetDisplayInfo());
             }
         }
-        public void DisplayTrips(ListView lv,TravelManager travelManager)
+        public void DisplayTrips(ListView lv,TravelManager travelManager) 
         {
             lv.Items.Clear();
             foreach (Trip trip in StaticMethods.FindAllTripsByUserID(travelManager, SignedInUser.UserID))

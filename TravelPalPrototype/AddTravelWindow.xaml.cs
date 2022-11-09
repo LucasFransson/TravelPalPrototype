@@ -28,7 +28,8 @@ namespace TravelPalPrototype
         public AddTravelWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
-
+            dtpEnd.BlackoutDates.AddDatesInPast();
+            dtpStart.BlackoutDates.AddDatesInPast();
             travelManager = tManager;
             userManager = uManager;
             cboCountryDestination.ItemsSource = Enum.GetNames(typeof(Countries));
@@ -41,6 +42,8 @@ namespace TravelPalPrototype
         public AddTravelWindow(TravelManager tManager,Travel t)
         {
             InitializeComponent();
+            dtpEnd.BlackoutDates.AddDatesInPast();
+            dtpStart.BlackoutDates.AddDatesInPast();
             travelManager = tManager;
             travel = t;
             cboCountryDestination.ItemsSource = Enum.GetNames(typeof(Countries));
