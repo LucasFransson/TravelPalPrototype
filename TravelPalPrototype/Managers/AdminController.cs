@@ -30,7 +30,7 @@ namespace TravelPalPrototype.Managers
         }
         public List<Travel> FindAllTravelsByUserID(int userID)
         {
-            return travelManager.travels.FindAll(t => t.TravelID == userID);
+            return travelManager.travels.FindAll(t => t.BookedByUserID == userID);
         }
 
         public List<Travel> FindAllTravelsByUsername(string username)

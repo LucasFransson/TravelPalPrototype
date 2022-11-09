@@ -53,7 +53,7 @@ namespace TravelPalPrototype.Managers
 
         public void AddUserToList(IUser iuser)
         {
-            allUsers.Add(iuser);
+            allUsers.Add(iuser); 
             if (iuser is User)
             {
                 User user = (User)iuser;
@@ -195,17 +195,22 @@ namespace TravelPalPrototype.Managers
         public void DisplayTravels(ListView lv,TravelManager travelManager)
         {
             lv.Items.Clear();
-            foreach(var travel in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
+            List<Travel> list = StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID);
+            foreach(var travel in list)
             {
-                lv.Items.Add(travel);   
+                lv.Items.Add(travel.GetDisplayInfo());
             }
+            //foreach (var travel in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
+            //{
+            //    lv.Items.Add(travel);   
+            //}
         }
         public void DisplayTrips(ListView lv,TravelManager travelManager)
         {
             lv.Items.Clear();
             foreach (Trip trip in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
             {
-                lv.Items.Add(trip);
+                lv.Items.Add(trip.GetDisplayInfo());
             }
         }
         public void DisplayVacations(ListView lv,TravelManager travelManager)
@@ -213,7 +218,7 @@ namespace TravelPalPrototype.Managers
             lv.Items.Clear();
             foreach (Vacation vacation in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
             {
-                lv.Items.Add(vacation);
+                lv.Items.Add(vacation.GetDisplayInfo());
             }
         }
     }
