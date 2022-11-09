@@ -195,11 +195,6 @@ namespace TravelPalPrototype.Managers
         public void DisplayTravels(ListView lv,TravelManager travelManager)
         {
             lv.Items.Clear();
-            //List<Travel> list = StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID);
-            //foreach(var travel in list)
-            //{
-            //    lv.Items.Add(travel.GetDisplayInfo());
-            //}
             foreach (var travel in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
             {
                 lv.Items.Add(travel.GetDisplayInfo());
