@@ -334,9 +334,10 @@
             x:Name="btnRemoveTravel"
             Content="Remove Travel"
             Grid.Column="10"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="2"
             Grid.Row="13"
             Height="35"
+            Foreground="White"
             Click="btnRemoveTravel_Click">
 
             <Button.Resources>
@@ -347,8 +348,8 @@
             </Button.Resources>
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF3C86B5" Offset="1" />
-                    <GradientStop Color="#FF3CADB5" />
+                    <GradientStop Color="#FF5C0C1B" Offset="1" />
+                    <GradientStop Color="#FFD54646" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
