@@ -125,15 +125,13 @@ namespace TravelPalPrototype
 
         public void ToggleInputElementsComboboxOff()
         {
-            tbxNewInfoOne.Visibility = Visibility.Hidden;
-            tbxNewInfoTwo.Visibility = Visibility.Hidden;
+            cboLocation.Visibility = Visibility.Hidden;
             btnSetNewInfo.Visibility = Visibility.Hidden;
         }
 
         public void ToggleInputElementsComboboxOn()
         {
-            tbxNewInfoOne.Visibility = Visibility.Visible;
-            tbxNewInfoTwo.Visibility = Visibility.Visible;
+            cboLocation.Visibility = Visibility.Visible;
             btnSetNewInfo.Visibility = Visibility.Visible;
         }
 
