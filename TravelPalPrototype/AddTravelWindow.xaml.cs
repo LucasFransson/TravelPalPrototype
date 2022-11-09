@@ -28,6 +28,7 @@ namespace TravelPalPrototype
         public AddTravelWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dtpEnd.BlackoutDates.AddDatesInPast();
             dtpStart.BlackoutDates.AddDatesInPast();
             travelManager = tManager;
@@ -42,6 +43,7 @@ namespace TravelPalPrototype
         public AddTravelWindow(TravelManager tManager,Travel t)
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dtpEnd.BlackoutDates.AddDatesInPast();
             dtpStart.BlackoutDates.AddDatesInPast();
             travelManager = tManager;

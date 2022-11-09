@@ -14,6 +14,8 @@ namespace TravelPalPrototype
         public UserDetailsWindow(UserManager uManger)
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (userManager.SignedInUser is User u)
             {
                 user = u;

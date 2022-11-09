@@ -17,6 +17,8 @@ namespace TravelPalPrototype
         public TravelDetailsWindow(TravelManager tManager, Travel t)
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             travel = t;
             lvTravelSelected.Items.Add(travel.GetDisplayInfo());
 

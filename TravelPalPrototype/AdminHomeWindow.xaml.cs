@@ -15,7 +15,10 @@ namespace TravelPalPrototype
 
         public AdminHomeWindow(UserManager uManager)
         {
+
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             userManager = uManager;
             adminController = new(travelManager,userManager);
         }

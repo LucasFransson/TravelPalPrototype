@@ -17,7 +17,7 @@ namespace TravelPalPrototype
         {
             userManager = uManager;
             InitializeComponent();
-
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             cboCountries.ItemsSource = Enum.GetNames(typeof(Countries));
         }
 
