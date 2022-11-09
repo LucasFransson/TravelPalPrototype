@@ -89,11 +89,13 @@ namespace TravelPalPrototype
             if (userManager.SignedInUser != null) // Failsafe ( Maybe remove this, a crash is easier to find and fix than a logical error )
             {
                 RefreshUserNameLabel();
-                lvBookedTravels.Items.Clear();  // Clearing the listview
-                foreach (var travel in travelManager.travels)
-                {
-                    lvBookedTravels.Items.Add(travel.GetDisplayInfo());
-                }
+                userManager.DisplayTravels(lvBookedTravels, travelManager);
+
+                //lvBookedTravels.Items.Clear();  // Clearing the listview
+                //foreach (var travel in travelManager.travels)
+                //{
+                //    lvBookedTravels.Items.Add(travel.GetDisplayInfo());
+                //}
             }
         }
 

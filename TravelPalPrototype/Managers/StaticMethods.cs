@@ -26,6 +26,11 @@ namespace TravelPalPrototype.Managers
             else return number;
         }
 
+        public static List<Travel> FindAllTravelsByUserID(TravelManager travelManager,int userID)
+        {
+            return travelManager.travels.FindAll(t => t.TravelID == userID);
+        }
+
         public static void CreateListViewPackingItem(ListView listView, IPackingListItem packItem)
         {
             ListViewItem item = new ListViewItem();

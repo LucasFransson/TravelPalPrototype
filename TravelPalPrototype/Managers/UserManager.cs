@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Controls;
 using TravelPalPrototype.Enums;
 using TravelPalPrototype.Interfaces;
 using TravelPalPrototype.Models;
@@ -164,6 +165,57 @@ namespace TravelPalPrototype.Managers
         public void RemoveAdmin(Admin admin)
         {
             allUsers.Remove(admin);
+        }
+
+
+
+        // Display Methods
+
+        public void Display(ListView lv, TravelManager travelManager,string travelType)
+        {
+            lv.Items.Clear();
+            switch (travelType)
+            {
+                case "Travels":
+                    {
+                        DisplayTravels(lv, travelManager);  
+                        break;
+                    }
+                case "Vacations":
+                    {
+                        DisplayVacations(lv, travelManager);
+                        break;
+                    }
+                case "Trips":
+                    {
+                        DisplayTrips(lv, travelManager);
+                        break;
+                    }
+            }
+        }
+        public void DisplayTravels(ListView lv,TravelManager travelManager)
+        {
+            lv.Items.Clear();
+            foreach(var travel in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
+            {
+                lv.Items.Add(travel);   
+            }
+        }
+        public void DisplayTrips(ListView lv,TravelManager travelManager)
+        {
+            lv.Items.Clear();
+            foreach (Trip trip in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
+            {
+                lv.Items.Add(trip);
+            }
+        }
+        public void DisplayVacations(ListView lv,TravelManager travelManager)
+        {
+            lv.Items.Clear();
+            foreach (Vacation vacation in StaticMethods.FindAllTravelsByUserID(travelManager, SignedInUser.UserID))
+            {
+                lv.Items.Add(vacation);
+            }
         }
     }
 }
