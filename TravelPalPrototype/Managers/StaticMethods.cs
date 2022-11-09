@@ -30,6 +30,14 @@ namespace TravelPalPrototype.Managers
         {
             return travelManager.travels.FindAll(t => t.BookedByUserID == userID);
         }
+        public static List <Trip> FindAllTripsByUserID(TravelManager travelManager, int userID)
+        {
+            return travelManager.trips.FindAll(t => t.BookedByUserID == userID);
+        }
+        public static List<Vacation> FindAllVacationsByUserID(TravelManager travelManager, int userID)
+        {
+            return travelManager.vacations.FindAll(t => t.BookedByUserID == userID);
+        }
 
         public static void CreateListViewPackingItem(ListView listView, IPackingListItem packItem)
         {
