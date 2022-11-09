@@ -99,6 +99,10 @@ namespace TravelPalPrototype
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
+
+            //One Liner
+            //travelManager.RemoveSelectedTravel(lvBookedTravels.SelectedItem.ToString()); 
+
             try
             {
                 var travel = travelManager.travels.FirstOrDefault(t => t.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
