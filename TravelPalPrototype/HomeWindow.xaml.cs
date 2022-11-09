@@ -12,7 +12,7 @@ namespace TravelPalPrototype
     public partial class HomeWindow : Window
     {
         private UserManager userManager; // Declaration of userManager object
-        private TravelManager travelManager = new(); // Creation of TravelManger object
+        private TravelManager travelManager = new();
 
         // Constructor for first opening of homewindow ( From Mainwindow/Login )
         public HomeWindow(UserManager userManager)
@@ -21,7 +21,6 @@ namespace TravelPalPrototype
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.userManager = userManager; // Reference from earlier usermanager to this usermanager
-
             StaticMethods.SignedInUser = userManager.SignedInUser;
             UpdateUI("Travels"); // Refresh the UI with username and list content ( if any )
         }
@@ -81,8 +80,8 @@ namespace TravelPalPrototype
         public void UpdateUI(string displayTypeString)
         {
 
-                RefreshUserNameLabel();
-                userManager.Display(lvBookedTravels, travelManager, displayTypeString);
+            RefreshUserNameLabel();
+            userManager.Display(lvBookedTravels, travelManager, displayTypeString);
 
         }
 
@@ -97,23 +96,11 @@ namespace TravelPalPrototype
             }
             else { MessageBox.Show("You must select a travel plan to remove."); }
 
-            //try
-            //{
-            //    var travel = travelManager.travels.FirstOrDefault(t => t.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
-            //    if (travel != null)
-            //    {
-            //        travelManager.RemoveTravel(travel);
-            //        UpdateUI();
-            //    }
-            //}
-            //catch (NullReferenceException ex)
-            //{ MessageBox.Show("You must select a travel plan to remove."); }
         }
 
         private void btnEditTravel_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+  
                 var travel = travelManager.travels.FirstOrDefault(x => x.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
                 if (travel != null)
                 {
@@ -121,9 +108,7 @@ namespace TravelPalPrototype
                     addTravelWindow.Show();
                     this.Close();
                 }
-            }
-            catch (NullReferenceException ex)
-            { MessageBox.Show("You must select a travel plan to remove."); }
+                else { MessageBox.Show("You must select a travel plan to edit."); }
         }
 
 
@@ -156,7 +141,7 @@ namespace TravelPalPrototype
 
         private void btnAboutUs_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Information");
         }
     }
 }

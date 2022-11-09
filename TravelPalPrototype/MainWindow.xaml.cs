@@ -12,6 +12,7 @@ namespace TravelPalPrototype
     public partial class MainWindow : Window
     {
         private UserManager userManager = new();
+        private TravelManager travelManager = new();
 
         public MainWindow()
         {
@@ -30,7 +31,7 @@ namespace TravelPalPrototype
                 userManager.SignedInUser = userManager.FindIUserByUsername(tbxUserName.Text);
                 if (userManager.SignedInUser is User user)
                 {
-                    HomeWindow homeWindow = new(userManager);
+                    HomeWindow homeWindow = new(userManager, travelManager);
                     homeWindow.Show();
                     this.Close();
                 }

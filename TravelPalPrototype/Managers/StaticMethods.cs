@@ -26,6 +26,7 @@ namespace TravelPalPrototype.Managers
             else return number;
         }
 
+
         public static List<Travel> FindAllTravelsByUserID(TravelManager travelManager,int userID)
         {
             return travelManager.travels.FindAll(t => t.BookedByUserID == userID);

@@ -28,6 +28,19 @@ namespace TravelPalPrototype.Managers
                 lvDisplay.Items.Add(user.Username);
             }
         }
+
+        public void DisplayAllTravels(ListView lv, TravelManager travelManager)
+        {
+            lv.Items.Clear();
+            foreach (User user in userManager.users)
+            {
+                foreach (var travel in StaticMethods.FindAllTravelsByUserID(travelManager, StaticMethods.SignedInUser.UserID))
+                {
+                    lv.Items.Add(travel.GetDisplayInfo());
+                }
+            }
+        }
+
         public List<Travel> FindAllTravelsByUserID(int userID)
         {
             return travelManager.travels.FindAll(t => t.BookedByUserID == userID);
