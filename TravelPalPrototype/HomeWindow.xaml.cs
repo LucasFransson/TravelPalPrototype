@@ -51,8 +51,8 @@ namespace TravelPalPrototype
             foreach (var travel in travelManager.travels)
             {
                 lvBookedTravels.Items.Add(travel.GetInfo());
-                //lvTrips.Items.Add(travel.GetInfo());
             }
+            lblCurrentListview.Content = "All Travel Plans";
         }
 
         // Logic for displaying username
@@ -69,6 +69,7 @@ namespace TravelPalPrototype
             {
                 lvBookedTravels.Items.Add(trip.GetInfo());
             }
+            lblCurrentListview.Content = "All Trips Plans";
         }
 
         // Logic for displaying all Vacations in the list
@@ -79,6 +80,7 @@ namespace TravelPalPrototype
             {
                 lvBookedTravels.Items.Add(vac.GetInfo());
             }
+            lblCurrentListview.Content = "All Vacation Plans";
         }
 
         // Logic for updating UI

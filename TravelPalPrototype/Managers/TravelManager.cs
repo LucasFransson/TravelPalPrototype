@@ -98,13 +98,21 @@ namespace TravelPalPrototype.Managers
         {
             travels.Remove(travel);
 
-            if (travel is Vacation)
+            if (travel is Vacation vacation)
             {
-                vacations.Remove((Vacation)travel);
+                vacations.Remove(vacation);
             }
-            else if (travel is Trip)
+            else if (travel is Trip trip)
             {
-                trips.Remove((Trip)travel);
+                trips.Remove(trip);
+            }
+        }
+        public void RemoveSelectedTravel(string travelInfo)
+        {
+            var travel = travels.FirstOrDefault(travel => travel.GetInfo() == travelInfo);
+            if (travel!=null)
+            {
+                RemoveTravel(travel);
             }
         }
 
@@ -179,5 +187,9 @@ namespace TravelPalPrototype.Managers
             }
             return false;
         }
+
+
+
+
     }
 }

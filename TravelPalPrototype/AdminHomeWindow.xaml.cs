@@ -11,6 +11,7 @@ namespace TravelPalPrototype
     {
         private TravelManager travelManager = new();
         private UserManager userManager;
+        private AdminController adminController = new();
 
         public AdminHomeWindow(UserManager uManager)
         {
