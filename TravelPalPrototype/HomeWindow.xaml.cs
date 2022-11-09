@@ -151,6 +151,9 @@ namespace TravelPalPrototype
         private void btnAccountSettings_Click(object sender, RoutedEventArgs e)
         {
 
+            UserDetailsWindow userDetailsWindow = new(userManager);
+            userDetailsWindow.Show();
+            this.Close();
         }
 
         private void btnAboutUs_Click(object sender, RoutedEventArgs e)
