@@ -135,6 +135,7 @@ namespace TravelPalPrototype
                     cbxAllInclusive.Visibility = Visibility.Visible;
                     isTravelVacation = true;
                     isTravelTrip = false;
+                    lblTripType.Visibility = Visibility.Hidden;
                     break;
 
                 case "Trip":
@@ -142,6 +143,7 @@ namespace TravelPalPrototype
                     cbxAllInclusive.Visibility = Visibility.Hidden;
                     isTravelVacation = false;
                     isTravelTrip = true;
+                    lblTripType.Visibility = Visibility.Visible;
                     break;
             }
         }

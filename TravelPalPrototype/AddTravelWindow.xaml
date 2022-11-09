@@ -106,9 +106,10 @@
             Grid.Row="4"
             Grid.Column="2"
             Grid.ColumnSpan="2"
-            Content="Destination:"
+            Content="Destination"
             FontFamily="Arial"
-            FontSize="14">
+            FontSize="14"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -124,7 +125,8 @@
             Grid.ColumnSpan="2"
             Content="Travelers"
             FontFamily="Arial"
-            FontSize="14">
+            FontSize="14"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -139,7 +141,8 @@
                Grid.Column="2"
                Grid.ColumnSpan="3"
                FontFamily="Arial"
-               FontSize="14">
+               FontSize="14"
+               Visibility="Hidden">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -155,9 +158,10 @@
             Content="Trip / Vacation"
             FontFamily="Arial"
             FontSize="14"
-            VerticalAlignment="Center"
+
             HorizontalAlignment="Left"
-            Grid.ColumnSpan="2">
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -246,7 +250,8 @@
             Grid.ColumnSpan="3"
             Content="Destination Country"
             FontFamily="Arial"
-            FontSize="14">
+            FontSize="14"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -268,7 +273,8 @@
             Content="End Date(YYYY/MM/DD"
             FontFamily="Arial"
             FontSize="10"
-           Grid.ColumnSpan="3">
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -283,7 +289,8 @@
             Content="Start Date(YYYY/MM/DD)"
             FontFamily="Arial"
             FontSize="10"
-            Grid.ColumnSpan="3">
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Bottom">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3C86B5" Offset="1" />
@@ -349,7 +356,7 @@
             Grid.Column="17"
             Grid.ColumnSpan="2"
             FontFamily="Arial"
-            FontSize="14"
+            FontSize="22"
             Foreground="#FF3CADB5"
             VerticalContentAlignment="Center"
             Visibility="Hidden"
