@@ -375,7 +375,7 @@
         </Button>
         <Label
             x:Name="lblCurrentListview"
-            Content="All Travel Plans"
+            Content="Travels"
             BorderThickness="5,5,5,5"
             Grid.Column="12"
             Grid.RowSpan="4"

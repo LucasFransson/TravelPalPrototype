@@ -49,7 +49,7 @@ namespace TravelPalPrototype
         {
 
             userManager.DisplayTravels(lvBookedTravels, travelManager);
-            lblCurrentListview.Content = "All Travel Plans";
+            lblCurrentListview.Content = "Travels";
 
         }
 
@@ -64,7 +64,7 @@ namespace TravelPalPrototype
         {
 
             userManager.DisplayTrips(lvBookedTravels, travelManager);
-            lblCurrentListview.Content = "All Trips Plans";
+            lblCurrentListview.Content = "Trips";
 
         }
 
@@ -73,7 +73,7 @@ namespace TravelPalPrototype
         {
 
             userManager.DisplayVacations(lvBookedTravels, travelManager);
-            lblCurrentListview.Content = "All Vacation Plans";
+            lblCurrentListview.Content = "Vacations";
 
         }
 
@@ -93,6 +93,7 @@ namespace TravelPalPrototype
             if (travelInfo != null)
             {
                 travelManager.RemoveSelectedTravel(lvBookedTravels.SelectedItem.ToString());
+                userManager.Display(lvBookedTravels,travelManager,lblListviewBackground.Content.ToString());
             }
             else { MessageBox.Show("You must select a travel plan to remove."); }
 
