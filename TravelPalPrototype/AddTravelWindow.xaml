@@ -400,6 +400,22 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button
+            Grid.Row="10"
+            Grid.Column="19"
+            Content="X"
+            Background="Transparent"
+            FontSize="30"
+            FontWeight="Bold"
+            >
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5C0C1B" Offset="1" />
+                    <GradientStop Color="#FFD54646" />
+                </LinearGradientBrush>
+            </Button.Foreground>
+
+        </Button>
         <Label
             x:Name="lblQuantity"
             Grid.Row="4"
