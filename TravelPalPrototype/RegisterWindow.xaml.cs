@@ -33,35 +33,31 @@ namespace TravelPalPrototype
 
         private void btnRegisterUser_Click(object sender, RoutedEventArgs e)
         {
-            if (userManager.CheckUsernameRequirements(tbxUserName.Text) == true)
+
+
+            if (!userManager.CheckUsernameRequirements(tbxUserName.Text))
             {
-                if (userManager.CheckPasswordRequirements(tbxPasswordTwo.Text) == true)
-                {
-                    if (userManager.ValidateUserName(tbxUserName.Text))
-                    {
-                        userManager.CreateNewUser(
-                                    tbxFirstName.Text,
-                                    tbxLastName.Text,
-                                    tbxUserName.Text,
-                                    tbxPasswordTwo.Text,
-
-                                    (Countries)cboCountries.SelectedItem);
-
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("An User with that Username is already registered. Please choose another name.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Your password does not meet the requirement. Please choose a password that is atleast 5 characters long.");
-                }
+                MessageBox.Show("Your Username does not meet the requirements. Please choose a Username that is atleast 3 characters long.");
+            }
+            else if (!userManager.CheckPasswordRequirements(tbxPasswordTwo.Text))
+            {
+                MessageBox.Show("Your password does not meet the requirement. Please choose a password that is atleast 5 characters long.");
+            }
+            else if (!userManager.ValidateUserName(tbxUserName.Text))
+            {
+                MessageBox.Show("An User with that Username is already registered. Please choose another name.");
             }
             else
             {
-                MessageBox.Show("Your Username does not meet the requirements. Please choose a Username that is atleast 3 characters long.");
+                userManager.CreateNewUser(
+                            tbxFirstName.Text,
+                            tbxLastName.Text,
+                            tbxUserName.Text,
+                            tbxPasswordTwo.Text,
+
+                            (Countries)cboCountries.SelectedItem);
+
+                Close();
             }
         }
 
