@@ -109,7 +109,7 @@ namespace TravelPalPrototype.Managers
         }
         public void RemoveSelectedTravel(string travelInfo)
         {
-            var travel = travels.FirstOrDefault(travel => travel.GetInfo() == travelInfo);
+            var travel = travels.FirstOrDefault(travel => travel.GetDisplayInfo() == travelInfo);
             if (travel!=null)
             {
                 RemoveTravel(travel);
