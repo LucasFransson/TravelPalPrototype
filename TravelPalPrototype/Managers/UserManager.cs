@@ -173,7 +173,6 @@ namespace TravelPalPrototype.Managers
 
         public void Display(ListView lv, TravelManager travelManager,string travelType)
         {
-            lv.Items.Clear();
             switch (travelType)
             {
                 case "Travels":

@@ -49,12 +49,8 @@ namespace TravelPalPrototype
         {
 
             userManager.DisplayTravels(lvBookedTravels, travelManager);
-            //lvBookedTravels.Items.Clear();  // Clearing the listview
-            //foreach (var travel in travelManager.travels)
-            //{
-            //    lvBookedTravels.Items.Add(travel.GetInfo());
-            //}
             lblCurrentListview.Content = "All Travel Plans";
+
         }
 
         // Logic for displaying username
@@ -66,43 +62,28 @@ namespace TravelPalPrototype
         // Logic for displaying all Trips in the list
         private void btnTrips_Click(object sender, RoutedEventArgs e)
         {
+
             userManager.DisplayTrips(lvBookedTravels, travelManager);
-            //lvBookedTravels.Items.Clear(); // Clearing the listview
-            //foreach (Trip trip in travelManager.travels)
-            //{
-            //    lvBookedTravels.Items.Add(trip.GetInfo());
-            //}
             lblCurrentListview.Content = "All Trips Plans";
+
         }
 
         // Logic for displaying all Vacations in the list
         private void btnShowVacations_Click(object sender, RoutedEventArgs e)
         {
+
             userManager.DisplayVacations(lvBookedTravels, travelManager);
-            //lvBookedTravels.Items.Clear();  // Clearing the listview
-            //foreach (Vacation vac in travelManager.travels)
-            //{
-            //    lvBookedTravels.Items.Add(vac.GetInfo());
-            //}
             lblCurrentListview.Content = "All Vacation Plans";
+
         }
 
         // Logic for updating UI
         public void UpdateUI(string displayTypeString)
         {
-            if (userManager.SignedInUser != null) // Failsafe ( Maybe remove this, a crash is easier to find and fix than a logical error )
-            {
+
                 RefreshUserNameLabel();
                 userManager.Display(lvBookedTravels, travelManager, displayTypeString);
 
-                //userManager.DisplayTravels(lvBookedTravels, travelManager);
-
-                //lvBookedTravels.Items.Clear();  // Clearing the listview
-                //foreach (var travel in travelManager.travels)
-                //{
-                //    lvBookedTravels.Items.Add(travel.GetDisplayInfo());
-                //}
-            }
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
