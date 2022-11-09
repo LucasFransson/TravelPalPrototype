@@ -22,8 +22,7 @@ namespace TravelPalPrototype
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
-            string travelInfo = lvBookedTravels.SelectedItem.ToString();
-            travelManager.RemoveSelectedTravel(travelInfo);
+            travelManager.RemoveSelectedTravel(lvBookedTravels.SelectedItem.ToString());
         }
 
         private void btnOpenUserList_Click(object sender, RoutedEventArgs e)

@@ -100,20 +100,24 @@ namespace TravelPalPrototype
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
 
-            //One Liner
-            //travelManager.RemoveSelectedTravel(lvBookedTravels.SelectedItem.ToString()); 
-
-            try
+            string travelInfo = lvBookedTravels.SelectedItem.ToString();
+            if (travelInfo != null)
             {
-                var travel = travelManager.travels.FirstOrDefault(t => t.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
-                if (travel != null)
-                {
-                    travelManager.RemoveTravel(travel);
-                    UpdateUI();
-                }
+                travelManager.RemoveSelectedTravel(lvBookedTravels.SelectedItem.ToString());
             }
-            catch (NullReferenceException ex)
-            { MessageBox.Show("You must select a travel plan to remove."); }
+            else { MessageBox.Show("You must select a travel plan to remove."); }
+
+            //try
+            //{
+            //    var travel = travelManager.travels.FirstOrDefault(t => t.GetDisplayInfo() == lvBookedTravels.SelectedItem.ToString());
+            //    if (travel != null)
+            //    {
+            //        travelManager.RemoveTravel(travel);
+            //        UpdateUI();
+            //    }
+            //}
+            //catch (NullReferenceException ex)
+            //{ MessageBox.Show("You must select a travel plan to remove."); }
         }
 
         private void btnEditTravel_Click(object sender, RoutedEventArgs e)
