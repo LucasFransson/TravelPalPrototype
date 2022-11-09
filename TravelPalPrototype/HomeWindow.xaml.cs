@@ -23,7 +23,7 @@ namespace TravelPalPrototype
             this.userManager = userManager; // Reference from earlier usermanager to this usermanager
 
             StaticMethods.SignedInUser = userManager.SignedInUser;
-            UpdateUI(); // Refresh the UI with username and list content ( if any )
+            UpdateUI("Travels"); // Refresh the UI with username and list content ( if any )
         }
 
         // Constructor for later openingings of homewindow ( From other windows than Mainwindow/Login )
@@ -33,7 +33,7 @@ namespace TravelPalPrototype
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             userManager = uManager;
             travelManager = tManager;
-            UpdateUI(); // Refresh the UI with username and list content ( if any )
+            UpdateUI("Travels"); // Refresh the UI with username and list content ( if any )
         }
 
         // Opens up the Add Travel Window
@@ -47,11 +47,13 @@ namespace TravelPalPrototype
         // Logic for displaying all Travels in the list
         private void btnShowTravels_Click(object sender, RoutedEventArgs e)
         {
-            lvBookedTravels.Items.Clear();  // Clearing the listview
-            foreach (var travel in travelManager.travels)
-            {
-                lvBookedTravels.Items.Add(travel.GetInfo());
-            }
+
+            userManager.DisplayTravels(lvBookedTravels, travelManager);
+            //lvBookedTravels.Items.Clear();  // Clearing the listview
+            //foreach (var travel in travelManager.travels)
+            //{
+            //    lvBookedTravels.Items.Add(travel.GetInfo());
+            //}
             lblCurrentListview.Content = "All Travel Plans";
         }
 
@@ -64,32 +66,36 @@ namespace TravelPalPrototype
         // Logic for displaying all Trips in the list
         private void btnTrips_Click(object sender, RoutedEventArgs e)
         {
-            lvBookedTravels.Items.Clear(); // Clearing the listview
-            foreach (Trip trip in travelManager.travels)
-            {
-                lvBookedTravels.Items.Add(trip.GetInfo());
-            }
+            userManager.DisplayTrips(lvBookedTravels, travelManager);
+            //lvBookedTravels.Items.Clear(); // Clearing the listview
+            //foreach (Trip trip in travelManager.travels)
+            //{
+            //    lvBookedTravels.Items.Add(trip.GetInfo());
+            //}
             lblCurrentListview.Content = "All Trips Plans";
         }
 
         // Logic for displaying all Vacations in the list
         private void btnShowVacations_Click(object sender, RoutedEventArgs e)
         {
-            lvBookedTravels.Items.Clear();  // Clearing the listview
-            foreach (Vacation vac in travelManager.travels)
-            {
-                lvBookedTravels.Items.Add(vac.GetInfo());
-            }
+            userManager.DisplayVacations(lvBookedTravels, travelManager);
+            //lvBookedTravels.Items.Clear();  // Clearing the listview
+            //foreach (Vacation vac in travelManager.travels)
+            //{
+            //    lvBookedTravels.Items.Add(vac.GetInfo());
+            //}
             lblCurrentListview.Content = "All Vacation Plans";
         }
 
         // Logic for updating UI
-        public void UpdateUI()
+        public void UpdateUI(string displayTypeString)
         {
             if (userManager.SignedInUser != null) // Failsafe ( Maybe remove this, a crash is easier to find and fix than a logical error )
             {
                 RefreshUserNameLabel();
-                userManager.DisplayTravels(lvBookedTravels, travelManager);
+                userManager.Display(lvBookedTravels, travelManager, displayTypeString);
+
+                //userManager.DisplayTravels(lvBookedTravels, travelManager);
 
                 //lvBookedTravels.Items.Clear();  // Clearing the listview
                 //foreach (var travel in travelManager.travels)
